@@ -5,7 +5,7 @@ html, body {
 }
 
 * {
-  /* border: 1px dotted blue; */
+  border: 1px dotted pink;
 }
 
 body {
@@ -29,14 +29,23 @@ h1 {
   color: #FFF;
 }
 
-main {
+h2 {
+  margin-left: 20px;
+  margin-bottom: 0;
+  margin-top: 30px;
+}
 
+main {
+border-right: 2px solid #46424D;
 }
 
 form {
   background: #46424D;
   color: #FFF;
   box-shadow: 10px 10px 10px #26222D;
+  border-radius: 3px;
+  margin: 10px 20px 0px 20px;
+  height: 400px;
 }
 
 input {
