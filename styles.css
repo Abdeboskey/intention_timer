@@ -1,0 +1,55 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+* {
+  border: 1px dotted pink;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  grid-template-rows: 40px auto;
+  background: #2B2733;
+  color: #CBC9CF;
+}
+
+header {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background: #46424D;
+}
+
+h1 {
+  margin: auto;
+  color: #FFF;
+}
+
+h2 {
+  margin-left: 20px;
+  margin-bottom: 0;
+  margin-top: 30px;
+}
+
+main {
+border-right: 2px solid #46424D;
+}
+
+form {
+  background: #46424D;
+  color: #FFF;
+  box-shadow: 10px 10px 10px #26222D;
+  border-radius: 3px;
+  margin: 10px 20px 0px 20px;
+  height: 400px;
+}
+
+input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #FFF;
+}
