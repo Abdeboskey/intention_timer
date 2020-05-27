@@ -73,11 +73,29 @@ form > p {
   grid-column: 1 / -1;
 }
 
-.user-description {
+.description-input {
   grid-column: 1 / -1;
 }
 
+.minutes-prompt {
+  grid-column: 1 / 4;
+}
 
+.seconds-prompt {
+  grid-column: 4 / 7;
+}
+
+.minutes-input {
+  grid-column: 1 / 4;
+}
+
+.seconds-input {
+  grid-column: 4 / 7;
+}
+
+.start-activity-button {
+grid-column-end: 7;
+}
 
 input {
   background: transparent;
