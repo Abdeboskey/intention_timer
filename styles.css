@@ -60,14 +60,25 @@ form > p {
 
 .study-button {
   grid-column: 1 / 3;
+  background: transparent;
+  color: #FFF;
 }
 
 .meditate-button {
   grid-column: 3 / 5;
+  background: transparent;
+  color: #FFF;
 }
 
 .exercise-button {
   grid-column: 5 / 7;
+  background: transparent;
+  color: #FFF;
+}
+
+img {
+  max-width: 22px;
+  height: auto;
 }
 
 .user-goal-prompt {
