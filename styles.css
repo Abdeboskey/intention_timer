@@ -69,7 +69,15 @@ form > p {
   grid-column: 5 / 7;
 }
 
-form > 
+.user-goal-prompt {
+  grid-column: 1 / -1;
+}
+
+.user-description {
+  grid-column: 1 / -1;
+}
+
+
 
 input {
   background: transparent;
