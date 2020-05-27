@@ -9,6 +9,7 @@ html, body {
 }
 
 body {
+  font-family: 'Montserrat', sans-serif;
   display: grid;
   grid-template-columns: 65% 35%;
   grid-template-rows: 40px auto;
