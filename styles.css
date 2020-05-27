@@ -1,0 +1,30 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+* {
+  border: 1px dotted blue;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  grid-template-rows: 40px auto;
+}
+
+header {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+h1 {
+  margin: auto;
+}
+
+main {
+  /* grid-column: 1 / 3; */
+}
