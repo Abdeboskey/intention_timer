@@ -3,6 +3,7 @@
   <head>
     <title>Intention Timer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap">
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssnormalize/cssnormalize-min.css">
     <link rel="stylesheet" type="text/css" href="styles.css"/>
   </head>
@@ -14,21 +15,25 @@
       <h2>New Activity</h2>
       <form>
         <p>Select a category:</p>
-        <button class="study-button">Study</button>
-        <button class="meditate-button">Meditate</button>
-        <button class="exercise-button">Exercise</button>
-        <label>What would you like to accomplish during this time?</label>
-        <input class="user-description"/>
-        <label>Minutes</label>
-        <input/>
-        <label>Seconds</label>
-        <input/>
+        <button class="study-button"><img src="assets/study.svg" alt="Image of lightbulb and book"><br/>
+          Study</button>
+        <button class="meditate-button"><img src="assets/meditate.svg" alt="Image of lotus flower"><br/>
+          Meditate</button>
+        <button class="exercise-button"><img src="assets/exercise.svg" alt="Image of shoes"><br/>
+          Exercise</button>
+        <label class="user-goal-prompt">What would you like to accomplish during this time?</label>
+        <input class="description-input"/>
+        <label class="minutes-prompt">Minutes</label>
+        <label class="seconds-prompt">Seconds</label>
+        <input class="minutes-input"/>
+        <input class="seconds-input"/>
         <button class="start-activity-button">START ACTIVITY</button>
       </form>
     </main>
     <section class="past-activities">
       <h2>Past Activities</h2>
-      <p>You haven't logged any activities yet. Complete the form to the left to get started!</p>
+      <p>You haven't logged any activities yet.<br/>
+        Complete the form to the left to get started!</p>
     </section>
   </body>
 </html>
