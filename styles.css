@@ -23,11 +23,13 @@ header {
   display: flex;
   justify-content: center;
   align-content: center;
+  height: 60px;
   background: #46424D;
 }
 
 h1 {
-  font-weight: 400;
+  font-size: 1.5em;
+  font-weight: 300;
   margin: auto;
   color: #FFF;
 }
@@ -36,7 +38,7 @@ h2 {
   font-weight: 400;
   margin-left: 30px;
   margin-bottom: 0;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 main {
@@ -76,7 +78,6 @@ form > p {
   margin: 0 30px;
   background: transparent;
   color: #FFF;
-  /* box-sizing: border-box; */
 }
 
 .exercise-button {
@@ -84,7 +85,6 @@ form > p {
   background: transparent;
   color: #FFF;
   margin-left: 60px;
-  /* box-sizing: border-box; */
 }
 
 .activity-button {
@@ -113,8 +113,8 @@ label {
 .description-input {
   grid-column: 1 / -1;
   height: 25px;
-  color: #CBC9CF;
   padding-top: 25px;
+  color: #CBC9CF;
   font: inherit;
   font-size: 1.2em;
 }
@@ -125,14 +125,27 @@ label {
 
 .seconds-prompt {
   grid-column: 4 / 7;
+  margin-left: 55px;
 }
 
 .minutes-input {
   grid-column: 1 / 4;
+  height: 25px;
+  padding-top: 25px;
+  margin-right: 55px;
+  color: #CBC9CF;
+  font: inherit;
+  font-size: 1.2em;
 }
 
 .seconds-input {
   grid-column: 4 / 7;
+  height: 25px;
+  padding-top: 25px;
+  margin-left: 55px;
+  color: #CBC9CF;
+  font: inherit;
+  font-size: 1.2em;
 }
 
 .start-activity-button {
