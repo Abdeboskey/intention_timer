@@ -10,6 +10,7 @@ html, body {
 
 body {
   font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
   display: grid;
   grid-template-columns: 65% 35%;
   grid-template-rows: 40px auto;
@@ -26,11 +27,13 @@ header {
 }
 
 h1 {
+  font-weight: 400;
   margin: auto;
   color: #FFF;
 }
 
 h2 {
+  font-weight: 400;
   margin-left: 30px;
   margin-bottom: 0;
   margin-top: 30px;
@@ -56,16 +59,20 @@ form {
 
 form > p {
   grid-column: 1 / -1;
+  font-weight: 400;
+  align-self: end;
 }
 
 .study-button {
   grid-column: 1 / 3;
   background: transparent;
   color: #FFF;
+  margin-right: 50px;
 }
 
 .meditate-button {
   grid-column: 3 / 5;
+  margin: 0 25px;
   background: transparent;
   color: #FFF;
 }
@@ -74,7 +81,14 @@ form > p {
   grid-column: 5 / 7;
   background: transparent;
   color: #FFF;
+  margin-left: 50px;
 }
+
+.activity-button {
+  border: solid 2px #FFF;
+  border-radius: 5px;
+}
+
 
 img {
   max-width: 22px;
