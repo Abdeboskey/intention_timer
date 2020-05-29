@@ -67,18 +67,6 @@ form > p {
   margin-bottom: 15px;
 }
 
-.activity-buttons {
-  border: solid 2px #FFF;
-  border-radius: 5px;
-  height: 70px;
-  width: 150px;
-  font-size: 1.15em;
-  box-sizing: border-box;
-  margin-top: 5px;
-  background: transparent;
-  color: #FFF;
-}
-
 .study-button {
   grid-column: 1 / 3;
   margin-right: 60px;
@@ -92,6 +80,18 @@ form > p {
 .exercise-button {
   grid-column: 5 / 7;
   margin-left: 60px;
+}
+
+.activity-buttons {
+  border: solid 2px #FFF;
+  border-radius: 5px;
+  height: 70px;
+  width: 150px;
+  font-size: 1.15em;
+  box-sizing: border-box;
+  margin-top: 5px;
+  background: transparent;
+  color: #FFF;
 }
 
 img {
