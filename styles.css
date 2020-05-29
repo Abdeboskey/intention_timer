@@ -64,6 +64,8 @@ form > p {
   font-weight: 400;
   font-size: 1.2em;
   align-self: end;
+  margin-top: 25px;
+  margin-bottom: 15px;
 }
 
 .study-button {
@@ -87,12 +89,14 @@ form > p {
   margin-left: 60px;
 }
 
-.activity-button {
+.activity-buttons {
   border: solid 2px #FFF;
   border-radius: 5px;
-  height: 70px;
-  font-size: 1.1em;
+  height: 80px;
+  width: 205px;
+  font-size: 1.15em;
   box-sizing: border-box;
+  margin-top: 5px;
 }
 
 
