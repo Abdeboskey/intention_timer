@@ -5,7 +5,7 @@ html, body {
 }
 
 * {
-  /* border: 1px dotted pink; */
+  border: 1px dotted pink;
 }
 
 body {
@@ -51,7 +51,7 @@ form {
   box-shadow: 10px 10px 8px .8px #26222D;
   border-radius: 3px;
   margin: 10px 30px 0px 30px;
-  height: 600px;
+  height: 560px;
   padding: 10px 120px 0px 120px;
   box-sizing: border-box;
   display: grid;
@@ -92,8 +92,8 @@ form > p {
 .activity-buttons {
   border: solid 2px #FFF;
   border-radius: 5px;
-  height: 80px;
-  width: 205px;
+  height: 70px;
+  width: 150px;
   font-size: 1.15em;
   box-sizing: border-box;
   margin-top: 5px;
