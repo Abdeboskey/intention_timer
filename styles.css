@@ -80,6 +80,7 @@ form > p {
   box-sizing: border-box;
   margin-top: 5px;
   background: transparent;
+  outline: none;
 }
 
 .study-selected {
@@ -95,6 +96,7 @@ form > p {
   box-sizing: border-box;
   margin-top: 5px;
   background: transparent;
+  outline: none;
 }
 
 .meditate-selected {
@@ -110,6 +112,7 @@ form > p {
   box-sizing: border-box;
   margin-top: 5px;
   background: transparent;
+  outline: none;
 }
 
 .exercise-selected {
