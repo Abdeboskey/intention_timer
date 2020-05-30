@@ -1,12 +1,3 @@
-// var minutesInput = document.querySelector(".minutes-input");
-// minutesInput.addEventListener("keydown", noLetters);
-// function noLetters(e) {
-//   // prevent: "e", "=", ",", "-", "."
-//   if ([69, 187, 188, 189, 190].includes(e.keyCode)) {
-//     e.preventDefault();
-//   }
-// }) // prevent e code for later
-
 var studyButtons = document.querySelector(".activity-buttons");
 
 studyButtons.addEventListener("click", selectActivity);
@@ -70,3 +61,11 @@ function exerciseDefault(button, image) {
   button.classList.remove("exercise-selected");
   image.src = "assets/exercise.svg";
 }
+
+var timeInput = document.querySelector(".time-input");
+timeInput.addEventListener("keydown", noLetters);
+function noLetters(event) {
+    if ([69, 187, 188, 189, 190].includes(event.keyCode)) {
+      event.preventDefault();
+  }
+} // prevent e code for later

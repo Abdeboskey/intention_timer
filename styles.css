@@ -161,22 +161,24 @@ label {
   margin-left: 55px;
   margin-bottom: 20px;
 }
-
+.time-input {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+}
 .minutes-input {
-  grid-column: 1 / 4;
   height: 25px;
+  width: 260px;
   padding-top: 5px;
-  margin-right: 55px;
   color: #CBC9CF;
   font: inherit;
   font-size: 1.2em;
 }
 
 .seconds-input {
-  grid-column: 4 / 7;
   height: 25px;
+  width: 260px;
   padding-top: 5px;
-  margin-left: 55px;
   color: #CBC9CF;
   font: inherit;
   font-size: 1.2em;
