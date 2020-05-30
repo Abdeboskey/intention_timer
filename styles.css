@@ -88,7 +88,6 @@ form > p {
 }
 
 #meditate-button {
-  border: solid 2px;
   border-radius: 5px;
   height: 70px;
   width: 150px;
@@ -98,8 +97,12 @@ form > p {
   background: transparent;
 }
 
+.meditate-selected {
+  border: solid 2px #C278FD;
+  color: #C278FD;
+}
+
 #exercise-button {
-  border: solid 2px;
   border-radius: 5px;
   height: 70px;
   width: 150px;
@@ -107,6 +110,11 @@ form > p {
   box-sizing: border-box;
   margin-top: 5px;
   background: transparent;
+}
+
+.exercise-selected {
+  border: solid 2px #FD8078;
+  color: #FD8078;
 }
 
 .activity-buttons {

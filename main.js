@@ -45,9 +45,23 @@ studyButtons.addEventListener("click", selectActivity);
 function selectActivity(event) {
   event.preventDefault();
   var studyButton = document.getElementById("study-button");
+  var studyImage = document.querySelector(".study-img");
+  var meditateButton = document.getElementById("meditate-button");
+  var meditateImage = document.querySelector(".meditate-img");
+  var exerciseButton = document.getElementById("exercise-button");
+  var exerciseImage = document.querySelector(".exercise-img");
+
   if (event.target.id === "study-button") {
-    studyButton.img = "assets/study-active.svg";
-    studyButton.classList.remove("btn-default");
-    studyButton.classList.add("study-selected");
+    studyButton.classList.remove("btn-default"); // create incompassing function for all
+    studyButton.classList.add("study-selected"); // lines in if staement
+    studyImage.src = "assets/study-active.svg";
+  } else if (event.target.id === "meditate-button") {
+    meditateButton.classList.remove("btn-default"); // create incompassing function for all
+    meditateButton.classList.add("meditate-selected"); // lines in if staement
+    meditateImage.src = "assets/meditate-active.svg";
+  } else if (event.target.id === "exercise-button") {
+    exerciseButton.classList.remove("btn-default"); // create incompassing function for all
+    exerciseButton.classList.add("exercise-selected"); // lines in if staement
+    exerciseImage.src = "assets/exercise-active.svg";
   }
 }
