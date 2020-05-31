@@ -1,13 +1,39 @@
 // Need To Do:
-// Remove outlines from input fields and start button
 // Make function that returns innerText of button clicked
 //// for our category property of Activity Class
 
-var studyButtons = document.querySelector(".activity-buttons");
+var activityButtons = document.querySelector(".activity-buttons");
+var startActivityBtn = document.querySelector(".start-activity-button");
 var timeInput = document.querySelector(".time-input");
+var currentActivity;
 
-studyButtons.addEventListener("click", selectActivity);
+startActivityBtn.addEventListener('click', makeNewActivity);
+activityButtons.addEventListener("click", selectActivity);
 timeInput.addEventListener("keydown", noLetters);
+
+function makeNewActivity(event) {
+  event.preventDefault();
+  var category = getCategory(activityButtons);
+  var description = document.querySelector(".description-input");
+  var minutes = document.querySelector(".minutes-input");
+  var seconds = document.querySelector(".seconds-input");
+
+  currentActivity = new Activity(
+    category,
+    description.value,
+    minutes.value,
+    seconds.value
+  );
+  console.log(currentActivity);
+}
+
+function getCategory(parent) {
+  for (var i = 0; i < parent.children.length; i++) {
+    if (!parent.children[i].classList.contains("btn-default")) {
+      return parent.children[i].innerText;
+    }
+  }
+}
 
 function selectActivity(event) {
   event.preventDefault();

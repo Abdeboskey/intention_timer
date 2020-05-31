@@ -148,6 +148,7 @@ label {
   color: #CBC9CF;
   font: inherit;
   font-size: 1.2em;
+
 }
 
 .minutes-prompt {
@@ -187,6 +188,8 @@ label {
 .start-activity-button {
   grid-column: 5 / 7;
   height: 40px;
+  border: none;
+  outline: none;
   border-radius: 5px;
   color: #46424D;
 }
@@ -194,6 +197,7 @@ label {
 input {
   background: transparent;
   border: none;
+  outline: none;
   border-bottom: 1px solid #FFF;
 }
 
