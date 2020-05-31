@@ -21,7 +21,6 @@ function makeNewActivity(event) {
     minutes.value.trim(),
     seconds.value.trim()
   );
-  console.log(currentActivity);
 }
 
 function getCategory(parent) {
@@ -93,7 +92,7 @@ function exerciseDefault(button, image) {
 }
 
 function noLetters(event) {
-    if ([69, 187, 188, 189, 190].includes(event.keyCode)) {
-      event.preventDefault();
+  if ([69, 187, 188, 189, 190].includes(event.keyCode)) {
+    event.preventDefault();
   }
-} // prevent e code for later
+}
