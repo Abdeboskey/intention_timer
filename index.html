@@ -15,18 +15,22 @@
       <h2>New Activity</h2>
       <form>
         <p>Select a category:</p>
-        <button class="study-button activity-buttons"><img src="assets/study.svg" alt="Image of lightbulb and book"><br/>
+        <div class="activity-buttons">
+          <button class="btn-default" id="study-button"><img class="study-img" src="assets/study.svg" alt="Image of lightbulb and book"><br/>
           Study</button>
-        <button class="meditate-button activity-buttons"><img src="assets/meditate.svg" alt="Image of lotus flower"><br/>
+          <button class="btn-default" id="meditate-button"><img class="meditate-img" src="assets/meditate.svg" alt="Image of lotus flower"><br/>
           Meditate</button>
-        <button class="exercise-button activity-buttons"><img src="assets/exercise.svg" alt="Image of shoes"><br/>
+          <button class="btn-default" id="exercise-button"><img class="exercise-img" src="assets/exercise.svg" alt="Image of shoes"><br/>
           Exercise</button>
+        </div>
         <label class="user-goal-prompt">What would you like to accomplish during this time?</label>
         <input class="description-input"/>
         <label class="minutes-prompt">Minutes</label>
         <label class="seconds-prompt">Seconds</label>
-        <input class="minutes-input" type="number" min="0" max="100"/>
-        <input class="seconds-input" type="number" min="0" max="59"/>
+        <div class="time-input">
+          <input class="minutes-input" type="number" min="0" max="100"/>
+          <input class="seconds-input" type="number" min="0" max="59"/>
+        </div>
         <button class="start-activity-button">START ACTIVITY</button>
       </form>
     </main>

@@ -67,23 +67,12 @@ form > p {
   margin-bottom: 15px;
 }
 
-.study-button {
-  grid-column: 1 / 3;
-  margin-right: 60px;
-}
-
-.meditate-button {
-  grid-column: 3 / 5;
-  margin: 0 30px;
-}
-
-.exercise-button {
-  grid-column: 5 / 7;
-  margin-left: 60px;
-}
-
-.activity-buttons {
+.btn-default{
   border: solid 2px #FFF;
+  color: #FFF;
+}
+
+#study-button {
   border-radius: 5px;
   height: 70px;
   width: 150px;
@@ -91,7 +80,50 @@ form > p {
   box-sizing: border-box;
   margin-top: 5px;
   background: transparent;
-  color: #FFF;
+  outline: none;
+}
+
+.study-selected {
+  border: solid 2px #B3FD78;
+  color: #B3FD78;
+}
+
+#meditate-button {
+  border-radius: 5px;
+  height: 70px;
+  width: 150px;
+  font-size: 1.15em;
+  box-sizing: border-box;
+  margin-top: 5px;
+  background: transparent;
+  outline: none;
+}
+
+.meditate-selected {
+  border: solid 2px #C278FD;
+  color: #C278FD;
+}
+
+#exercise-button {
+  border-radius: 5px;
+  height: 70px;
+  width: 150px;
+  font-size: 1.15em;
+  box-sizing: border-box;
+  margin-top: 5px;
+  background: transparent;
+  outline: none;
+}
+
+.exercise-selected {
+  border: solid 2px #FD8078;
+  color: #FD8078;
+}
+
+.activity-buttons {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
 }
 
 img {
@@ -129,22 +161,24 @@ label {
   margin-left: 55px;
   margin-bottom: 20px;
 }
-
+.time-input {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+}
 .minutes-input {
-  grid-column: 1 / 4;
   height: 25px;
+  width: 260px;
   padding-top: 5px;
-  margin-right: 55px;
   color: #CBC9CF;
   font: inherit;
   font-size: 1.2em;
 }
 
 .seconds-input {
-  grid-column: 4 / 7;
   height: 25px;
+  width: 260px;
   padding-top: 5px;
-  margin-left: 55px;
   color: #CBC9CF;
   font: inherit;
   font-size: 1.2em;
