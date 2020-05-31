@@ -20,9 +20,9 @@ function makeNewActivity(event) {
 
   currentActivity = new Activity(
     category,
-    description.value,
-    minutes.value,
-    seconds.value
+    description.value.trim(),
+    minutes.value.trim(),
+    seconds.value.trim()
   );
   console.log(currentActivity);
 }
