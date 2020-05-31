@@ -1,6 +1,13 @@
+// Need To Do:
+// Remove outlines from input fields and start button
+// Make function that returns innerText of button clicked
+//// for our category property of Activity Class
+
 var studyButtons = document.querySelector(".activity-buttons");
+var timeInput = document.querySelector(".time-input");
 
 studyButtons.addEventListener("click", selectActivity);
+timeInput.addEventListener("keydown", noLetters);
 
 function selectActivity(event) {
   event.preventDefault();
@@ -11,15 +18,15 @@ function selectActivity(event) {
   var exerciseButton = document.getElementById("exercise-button");
   var exerciseImage = document.querySelector(".exercise-img");
 
-  if (event.target.id === "study-button") {
+  if (event.target.classList.contains("study")) {
     studySelect(studyButton, studyImage);
     meditateDefault(meditateButton, meditateImage);
     exerciseDefault(exerciseButton, exerciseImage);
-  } else if (event.target.id === "meditate-button") {
+  } else if (event.target.classList.contains("meditate")) {
     meditateSelect(meditateButton, meditateImage);
     studyDefault(studyButton, studyImage);
     exerciseDefault(exerciseButton, exerciseImage);
-  } else if (event.target.id === "exercise-button") {
+  } else if (event.target.classList.contains("exercise")) {
     exerciseSelect(exerciseButton, exerciseImage);
     studyDefault(studyButton, studyImage);
     meditateDefault(meditateButton, meditateImage);
@@ -62,8 +69,6 @@ function exerciseDefault(button, image) {
   image.src = "assets/exercise.svg";
 }
 
-var timeInput = document.querySelector(".time-input");
-timeInput.addEventListener("keydown", noLetters);
 function noLetters(event) {
     if ([69, 187, 188, 189, 190].includes(event.keyCode)) {
       event.preventDefault();
