@@ -18,6 +18,10 @@ body {
   color: #CBC9CF;
 }
 
+.hidden {
+  display: none;
+}
+
 header {
   grid-column: 1 / -1;
   display: flex;
@@ -35,9 +39,7 @@ h1 {
 }
 
 h2 {
-  margin-left: 30px;
-  margin-bottom: 0;
-  margin-top: 50px;
+  margin: 50px auto 0px 30px;
 }
 
 main {

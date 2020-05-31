@@ -1,6 +1,3 @@
-// Need To Do:
-// Make function that returns innerText of button clicked
-//// for our category property of Activity Class
 
 var activityButtons = document.querySelector(".activity-buttons");
 var startActivityBtn = document.querySelector(".start-activity-button");
@@ -19,7 +16,7 @@ function makeNewActivity(event) {
   var seconds = document.querySelector(".seconds-input");
 
   currentActivity = new Activity(
-    category,
+    category.trim(),
     description.value.trim(),
     minutes.value.trim(),
     seconds.value.trim()
