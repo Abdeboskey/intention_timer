@@ -7,16 +7,21 @@ startActivityBtn.addEventListener('click', startActivity);
 activityButtons.addEventListener("click", selectActivity);
 timeInput.addEventListener("keydown", noLetters);
 
-// Start HERE next time
 function displayUserInput() {
   var userDescription = document.querySelector(".user-description");
+  userDescription.innerText = currentActivity.description;
+  getTime();
+  getColor();
+}
+
+function getTime() {
   var userMinutes = document.querySelector(".user-minutes");
   var userSeconds = document.querySelector(".user-seconds");
+  var dblDigitMinutes = ("0" + currentActivity.minutes).slice(-2);
+  var dblDigitSeconds = ("0" + currentActivity.seconds).slice(-2);
 
-  userDescription.innerText = currentActivity.description;
-  userMinutes.innerText = currentActivity.minutes;
-  userSeconds.innerText = currentActivity.seconds;
-  getColor();
+  userMinutes.innerText = dblDigitMinutes;
+  userSeconds.innerText = dblDigitSeconds;
 }
 
 function getColor() {
