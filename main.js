@@ -1,6 +1,48 @@
-var studyButtons = document.querySelector(".activity-buttons");
+var activityButtons = document.querySelector(".activity-buttons");
+var startActivityBtn = document.querySelector(".start-activity-button");
+var timeInput = document.querySelector(".time-input");
+var currentActivity;
 
-studyButtons.addEventListener("click", selectActivity);
+startActivityBtn.addEventListener('click', startActivity);
+activityButtons.addEventListener("click", selectActivity);
+timeInput.addEventListener("keydown", noLetters);
+
+// Start HERE next time
+
+function startActivity(event) {
+  makeNewActivity(event);
+  toggleElement("new-activity-title", "new-activity-form");
+  toggleElement("current-activity-title", "timer-display");
+  // if statement to assign color to start button circle
+}
+
+function toggleElement(className1, className2) {
+  document.querySelector(`.${className1}`).classList.toggle(`hidden`);
+  document.querySelector(`.${className2}`).classList.toggle(`hidden`);
+}
+
+function makeNewActivity(event) {
+  event.preventDefault();
+  var category = getCategory(activityButtons);
+  var description = document.querySelector(".description-input");
+  var minutes = document.querySelector(".minutes-input");
+  var seconds = document.querySelector(".seconds-input");
+
+  currentActivity = new Activity(
+    category.trim(),
+    description.value.trim(),
+    minutes.value.trim(),
+    seconds.value.trim()
+  );
+}
+
+function getCategory(parent) {
+  for (var i = 0; i < parent.children.length; i++) {
+    if (!parent.children[i].classList.contains("btn-default")) {
+      return parent.children[i].innerText;
+    }
+  }
+}
 
 function selectActivity(event) {
   event.preventDefault();
@@ -11,61 +53,35 @@ function selectActivity(event) {
   var exerciseButton = document.getElementById("exercise-button");
   var exerciseImage = document.querySelector(".exercise-img");
 
-  if (event.target.id === "study-button") {
-    studySelect(studyButton, studyImage);
-    meditateDefault(meditateButton, meditateImage);
-    exerciseDefault(exerciseButton, exerciseImage);
-  } else if (event.target.id === "meditate-button") {
-    meditateSelect(meditateButton, meditateImage);
-    studyDefault(studyButton, studyImage);
-    exerciseDefault(exerciseButton, exerciseImage);
-  } else if (event.target.id === "exercise-button") {
-    exerciseSelect(exerciseButton, exerciseImage);
-    studyDefault(studyButton, studyImage);
-    meditateDefault(meditateButton, meditateImage);
+  if (event.target.classList.contains("study")) {
+    buttonSelect(studyButton, studyImage, "study");
+    buttonDefault(meditateButton, meditateImage, "meditate");
+    buttonDefault(exerciseButton, exerciseImage, "exercise");
+  } else if (event.target.classList.contains("meditate")) {
+    buttonSelect(meditateButton, meditateImage, "meditate");
+    buttonDefault(studyButton, studyImage, "study");
+    buttonDefault(exerciseButton, exerciseImage, "exercise");
+  } else if (event.target.classList.contains("exercise")) {
+    buttonSelect(exerciseButton, exerciseImage, "exercise");
+    buttonDefault(studyButton, studyImage, "study");
+    buttonDefault(meditateButton, meditateImage, "meditate");
   }
 }
 
-function studySelect(button, image) {
+function buttonSelect(button, image, category) {
   button.classList.remove("btn-default");
-  button.classList.add("study-selected");
-  image.src = "assets/study-active.svg";
+  button.classList.add(`${category}-selected`);
+  image.src = `assets/${category}-active.svg`;
 }
 
-function meditateSelect(button, image) {
-  button.classList.remove("btn-default");
-  button.classList.add("meditate-selected");
-  image.src = "assets/meditate-active.svg";
-}
-
-function exerciseSelect(button, image) {
-  button.classList.remove("btn-default");
-  button.classList.add("exercise-selected");
-  image.src = "assets/exercise-active.svg";
-}
-
-function studyDefault(button, image) {
+function buttonDefault(button, image, category) {
   button.classList.add("btn-default");
-  button.classList.remove("study-selected");
-  image.src = "assets/study.svg";
+  button.classList.remove(`${category}-selected`);
+  image.src = `assets/${category}.svg`;
 }
 
-function meditateDefault(button, image) {
-  button.classList.add("btn-default");
-  button.classList.remove("meditate-selected");
-  image.src = "assets/meditate.svg";
-}
-
-function exerciseDefault(button, image) {
-  button.classList.add("btn-default");
-  button.classList.remove("exercise-selected");
-  image.src = "assets/exercise.svg";
-}
-
-var timeInput = document.querySelector(".time-input");
-timeInput.addEventListener("keydown", noLetters);
 function noLetters(event) {
-    if ([69, 187, 188, 189, 190].includes(event.keyCode)) {
-      event.preventDefault();
+  if ([69, 187, 188, 189, 190].includes(event.keyCode)) {
+    event.preventDefault();
   }
-} // prevent e code for later
+}

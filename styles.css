@@ -18,6 +18,10 @@ body {
   color: #CBC9CF;
 }
 
+.hidden {
+  display: none;
+}
+
 header {
   grid-column: 1 / -1;
   display: flex;
@@ -35,9 +39,7 @@ h1 {
 }
 
 h2 {
-  margin-left: 30px;
-  margin-bottom: 0;
-  margin-top: 50px;
+  margin: 50px auto 0px 30px;
 }
 
 main {
@@ -52,7 +54,6 @@ form {
   margin: 10px 30px 0px 30px;
   height: 560px;
   padding: 10px 120px 0px 120px;
-  /* box-sizing: border-box; */
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(7, minmax(80px, 200px));
@@ -60,7 +61,6 @@ form {
 
 form > p {
   grid-column: 1 / -1;
-  /* font-weight: 400; */
   font-size: 1.2em;
   align-self: end;
   margin-top: 25px;
@@ -148,6 +148,7 @@ label {
   color: #CBC9CF;
   font: inherit;
   font-size: 1.2em;
+
 }
 
 .minutes-prompt {
@@ -187,6 +188,8 @@ label {
 .start-activity-button {
   grid-column: 5 / 7;
   height: 40px;
+  border: none;
+  outline: none;
   border-radius: 5px;
   color: #46424D;
 }
@@ -194,7 +197,36 @@ label {
 input {
   background: transparent;
   border: none;
+  outline: none;
   border-bottom: 1px solid #FFF;
+}
+
+.timer-display {
+  background: #46424D;
+  color: #FFF;
+  box-shadow: 10px 10px 8px .8px #26222D;
+  border-radius: 3px;
+  margin: 10px 30px 0px 30px;
+  height: 560px;
+  padding: 10px 120px 0px 120px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-evenly; */
+  align-items: center;
+}
+
+.user-description {
+  font-size: 1.4em;
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+.timer {
+  /* font: 5em bold 600px arial; */
+  font-family: arial;
+  font-weight: 600px;
+  font-size: 5em;
+  font-style: bold;
 }
 
 .past-activities > p {
@@ -202,4 +234,16 @@ input {
   line-height: 1.8;
   font-size: .95em;
   margin-top: 30px;
+}
+
+.start-timer-button {
+  font-size: 1.5em;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  padding: 60px;
+  margin-top: 40px;
+  background: transparent;
+  color: #FFF;
+  border: 3.75px solid rebeccapurple;
 }
