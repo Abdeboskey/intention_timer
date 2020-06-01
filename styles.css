@@ -18,10 +18,6 @@ body {
   color: #CBC9CF;
 }
 
-.hidden {
-  display: none;
-}
-
 header {
   grid-column: 1 / -1;
   display: flex;
@@ -148,7 +144,6 @@ label {
   color: #CBC9CF;
   font: inherit;
   font-size: 1.2em;
-
 }
 
 .minutes-prompt {
@@ -245,5 +240,23 @@ input {
   margin-top: 40px;
   background: transparent;
   color: #FFF;
-  border: 3.75px solid rebeccapurple;
+  border: 3.75px solid;
+  outline: none;
+}
+
+.study-color {
+  border-color: #B3FD78;
+}
+
+.meditate-color {
+  border-color: #C278FD;
+}
+
+.exercise-color {
+  border-color: #FD8078;
+}
+
+
+.hidden {
+  display: none;
 }

@@ -8,17 +8,39 @@ activityButtons.addEventListener("click", selectActivity);
 timeInput.addEventListener("keydown", noLetters);
 
 // Start HERE next time
+function displayUserInput() {
+  var userDescription = document.querySelector(".user-description");
+  var userMinutes = document.querySelector(".user-minutes");
+  var userSeconds = document.querySelector(".user-seconds");
+
+  userDescription.innerText = currentActivity.description;
+  userMinutes.innerText = currentActivity.minutes;
+  userSeconds.innerText = currentActivity.seconds;
+  getColor();
+}
+
+function getColor() {
+  var startTimerButton = document.querySelector(".start-timer-button");
+  if (currentActivity.category === "Study") {
+    startTimerButton.classList.add("study-color");
+  } else if (currentActivity.category === "Meditate") {
+    startTimerButton.classList.add("meditate-color");
+  } else if (currentActivity.category === "Exercise") {
+    startTimerButton.classList.add("exercise-color");
+  }
+}
 
 function startActivity(event) {
+  event.preventDefault();
   makeNewActivity(event);
   toggleElement("new-activity-title", "new-activity-form");
   toggleElement("current-activity-title", "timer-display");
-  // if statement to assign color to start button circle
+  displayUserInput();
 }
 
 function toggleElement(className1, className2) {
-  document.querySelector(`.${className1}`).classList.toggle(`hidden`);
-  document.querySelector(`.${className2}`).classList.toggle(`hidden`);
+  document.querySelector(`.${className1}`).classList.toggle("hidden");
+  document.querySelector(`.${className2}`).classList.toggle("hidden");
 }
 
 function makeNewActivity(event) {
