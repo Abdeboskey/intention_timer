@@ -3,23 +3,23 @@ var startActivityBtn = document.querySelector(".start-activity-button");
 var timeInput = document.querySelector(".time-input");
 var currentActivity;
 
-startActivityBtn.addEventListener('click', makeNewActivity);
+startActivityBtn.addEventListener('click', startActivity);
 activityButtons.addEventListener("click", selectActivity);
 timeInput.addEventListener("keydown", noLetters);
 
 // Start HERE next time
-//// call the following hide and display functions when makeNewActivity is clicked
-//// could these be toggle instead of add/remove, so we only need one?
 
-function hideElement(className) {
-  document.querySelector(`.${className}`).classList.add(`hidden`);
+function startActivity(event) {
+  makeNewActivity(event);
+  toggleElement("new-activity-title", "new-activity-form");
+  toggleElement("current-activity-title", "timer-display");
+  // if statement to assign color to start button circle
 }
 
-function displayElement(className) {
-  document.querySelector(`.${className}`).classList.remove(`hidden`);
+function toggleElement(className1, className2) {
+  document.querySelector(`.${className1}`).classList.toggle(`hidden`);
+  document.querySelector(`.${className2}`).classList.toggle(`hidden`);
 }
-
-// Create startActivity function that includes immediately above, and below.
 
 function makeNewActivity(event) {
   event.preventDefault();
