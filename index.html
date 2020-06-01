@@ -17,16 +17,25 @@
       <form class="new-activity-form">
         <p>Select a category:</p>
         <div class="activity-buttons">
-          <button class="btn-default study" id="study-button"><img class="study-img study" src="assets/study.svg" alt="Image of lightbulb and book"><br/>
-          Study</button>
-          <button class="btn-default meditate" id="meditate-button"><img class="meditate-img meditate" src="assets/meditate.svg" alt="Image of lotus flower"><br/>
-          Meditate</button>
-          <button class="btn-default exercise" id="exercise-button"><img class="exercise-img exercise" src="assets/exercise.svg" alt="Image of shoes"><br/>
-          Exercise</button>
+          <button class="btn-default study" id="study-button">
+            <img class="study-img study" src="assets/study.svg" alt="Image of lightbulb and book"><br/>
+          Study
+          </button>
+          <button class="btn-default meditate" id="meditate-button">
+            <img class="meditate-img meditate" src="assets/meditate.svg" alt="Image of lotus flower"><br/>
+          Meditate
+          </button>
+          <button class="btn-default exercise" id="exercise-button">
+            <img class="exercise-img exercise" src="assets/exercise.svg" alt="Image of shoes"><br/>
+          Exercise
+          </button>
         </div>
         <label class="user-goal-prompt">What would you like to accomplish during this time?</label>
         <input class="description-input"/>
-        <div class="error-message hidden"></div>
+        <div class="error-message">
+          <img src="assets/warning.svg" alt="Triangular warning icon">
+          <span>All fields are required.</span>
+        </div>
         <label class="minutes-prompt">Minutes</label>
         <label class="seconds-prompt">Seconds</label>
         <div class="time-input">

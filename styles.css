@@ -4,9 +4,9 @@ html, body {
   height: 100%;
 }
 
-/* * {
+* {
   border: 1px dotted pink;
-} */
+}
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -138,12 +138,30 @@ label {
 
 .description-input {
   grid-column: 1 / -1;
+  grid-row: 4 / 5;
   height: 25px;
   padding-top: 25px;
   /* margin-bottom: 0; */
   color: #CBC9CF;
   font: inherit;
   font-size: 1.2em;
+}
+
+.error-message {
+  color: #EFB7EC;
+  grid-column: 1 / -1;
+  grid-row: 4 / 5;
+  margin-top: 65px;
+  font-size: 1.1em;
+  font-weight: 400px;
+}
+
+.error-message > img {
+  height: 1.1em;
+}
+
+.error-message > span {
+  /* margin-top: -5px; */
 }
 
 .minutes-prompt {
@@ -157,11 +175,13 @@ label {
   margin-left: 55px;
   margin-bottom: 20px;
 }
+
 .time-input {
   grid-column: 1 / -1;
   display: flex;
   justify-content: space-between;
 }
+
 .minutes-input {
   height: 25px;
   width: 260px;
