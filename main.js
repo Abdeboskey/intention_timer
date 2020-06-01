@@ -1,4 +1,3 @@
-
 var activityButtons = document.querySelector(".activity-buttons");
 var startActivityBtn = document.querySelector(".start-activity-button");
 var timeInput = document.querySelector(".time-input");
@@ -7,6 +6,19 @@ var currentActivity;
 startActivityBtn.addEventListener('click', makeNewActivity);
 activityButtons.addEventListener("click", selectActivity);
 timeInput.addEventListener("keydown", noLetters);
+
+// Start HERE next time
+//// call the following hide and display functions when makeNewActivity is clicked
+
+function hideElement(className) {
+  document.querySelector(`.${className}`).classList.add(`hidden`);
+}
+
+function displayElement(className) {
+  document.querySelector(`.${className}`).classList.remove(`hidden`);
+}
+
+// Create startActivity function that includes immediately above, and below.
 
 function makeNewActivity(event) {
   event.preventDefault();
@@ -30,6 +42,8 @@ function getCategory(parent) {
     }
   }
 }
+
+// How can we refactor all of the below functions?
 
 function selectActivity(event) {
   event.preventDefault();
@@ -55,11 +69,21 @@ function selectActivity(event) {
   }
 }
 
+// For refactoring:
+////Make buttonSelect and buttonDefault using parameters as follows:
+
+// function buttonSelect(button, image, "btn-default", "study-selected", "active-img") {
+//   button.classList.remove("btn-default");
+//   button.classList.add("study-selected");
+//   image.src = "assets/study-active.svg";
+// }
+
 function studySelect(button, image) {
   button.classList.remove("btn-default");
   button.classList.add("study-selected");
   image.src = "assets/study-active.svg";
 }
+
 
 function meditateSelect(button, image) {
   button.classList.remove("btn-default");
@@ -90,6 +114,8 @@ function exerciseDefault(button, image) {
   button.classList.remove("exercise-selected");
   image.src = "assets/exercise.svg";
 }
+
+// ^^^^^^^^ See above comment
 
 function noLetters(event) {
   if ([69, 187, 188, 189, 190].includes(event.keyCode)) {
