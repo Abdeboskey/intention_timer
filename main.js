@@ -1,11 +1,30 @@
 var activityButtons = document.querySelector(".activity-buttons");
 var startActivityBtn = document.querySelector(".start-activity-button");
-var timeInput = document.querySelector(".time-input");
+var timeInput = document.querySelector(".time-input"); // refactor???
+var description = document.querySelector(".description-input");
+var minutes = document.querySelector(".minutes-input");
+var seconds = document.querySelector(".seconds-input");
 var currentActivity;
 
 startActivityBtn.addEventListener('click', startActivity);
 activityButtons.addEventListener("click", selectActivity);
 timeInput.addEventListener("keydown", noLetters);
+
+
+function validateInput() {
+  var descriptionValue = description.value.trim();
+  var minutesValue = minutes.value.trim();
+  var secondsValue = seconds.value.trim();
+
+  if (descriptionValue === "" || minutesValue === "" || secondsValue === "") {
+   displayErrorMessage();
+  }
+}
+
+function displayErrorMessage() {
+
+}
+
 
 function displayUserInput() {
   getDescription();
@@ -55,9 +74,6 @@ function toggleElement(className1, className2) {
 function makeNewActivity(event) {
   event.preventDefault();
   var category = getCategory(activityButtons);
-  var description = document.querySelector(".description-input");
-  var minutes = document.querySelector(".minutes-input");
-  var seconds = document.querySelector(".seconds-input");
 
   currentActivity = new Activity(
     category.trim(),
