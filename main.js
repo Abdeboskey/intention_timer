@@ -9,6 +9,7 @@ timeInput.addEventListener("keydown", noLetters);
 
 // Start HERE next time
 //// call the following hide and display functions when makeNewActivity is clicked
+//// could these be toggle instead of add/remove, so we only need one?
 
 function hideElement(className) {
   document.querySelector(`.${className}`).classList.add(`hidden`);
@@ -43,8 +44,6 @@ function getCategory(parent) {
   }
 }
 
-// How can we refactor all of the below functions?
-
 function selectActivity(event) {
   event.preventDefault();
   var studyButton = document.getElementById("study-button");
@@ -55,67 +54,31 @@ function selectActivity(event) {
   var exerciseImage = document.querySelector(".exercise-img");
 
   if (event.target.classList.contains("study")) {
-    studySelect(studyButton, studyImage);
-    meditateDefault(meditateButton, meditateImage);
-    exerciseDefault(exerciseButton, exerciseImage);
+    buttonSelect(studyButton, studyImage, "study");
+    buttonDefault(meditateButton, meditateImage, "meditate");
+    buttonDefault(exerciseButton, exerciseImage, "exercise");
   } else if (event.target.classList.contains("meditate")) {
-    meditateSelect(meditateButton, meditateImage);
-    studyDefault(studyButton, studyImage);
-    exerciseDefault(exerciseButton, exerciseImage);
+    buttonSelect(meditateButton, meditateImage, "meditate");
+    buttonDefault(studyButton, studyImage, "study");
+    buttonDefault(exerciseButton, exerciseImage, "exercise");
   } else if (event.target.classList.contains("exercise")) {
-    exerciseSelect(exerciseButton, exerciseImage);
-    studyDefault(studyButton, studyImage);
-    meditateDefault(meditateButton, meditateImage);
+    buttonSelect(exerciseButton, exerciseImage, "exercise");
+    buttonDefault(studyButton, studyImage, "study");
+    buttonDefault(meditateButton, meditateImage, "meditate");
   }
 }
 
-// For refactoring:
-////Make buttonSelect and buttonDefault using parameters as follows:
-
-// function buttonSelect(button, image, "btn-default", "study-selected", "active-img") {
-//   button.classList.remove("btn-default");
-//   button.classList.add("study-selected");
-//   image.src = "assets/study-active.svg";
-// }
-
-function studySelect(button, image) {
+function buttonSelect(button, image, category) {
   button.classList.remove("btn-default");
-  button.classList.add("study-selected");
-  image.src = "assets/study-active.svg";
+  button.classList.add(`${category}-selected`);
+  image.src = `assets/${category}-active.svg`;
 }
 
-
-function meditateSelect(button, image) {
-  button.classList.remove("btn-default");
-  button.classList.add("meditate-selected");
-  image.src = "assets/meditate-active.svg";
-}
-
-function exerciseSelect(button, image) {
-  button.classList.remove("btn-default");
-  button.classList.add("exercise-selected");
-  image.src = "assets/exercise-active.svg";
-}
-
-function studyDefault(button, image) {
+function buttonDefault(button, image, category) {
   button.classList.add("btn-default");
-  button.classList.remove("study-selected");
-  image.src = "assets/study.svg";
+  button.classList.remove(`${category}-selected`);
+  image.src = `assets/${category}.svg`;
 }
-
-function meditateDefault(button, image) {
-  button.classList.add("btn-default");
-  button.classList.remove("meditate-selected");
-  image.src = "assets/meditate.svg";
-}
-
-function exerciseDefault(button, image) {
-  button.classList.add("btn-default");
-  button.classList.remove("exercise-selected");
-  image.src = "assets/exercise.svg";
-}
-
-// ^^^^^^^^ See above comment
 
 function noLetters(event) {
   if ([69, 187, 188, 189, 190].includes(event.keyCode)) {
