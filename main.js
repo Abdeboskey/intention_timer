@@ -8,10 +8,14 @@ activityButtons.addEventListener("click", selectActivity);
 timeInput.addEventListener("keydown", noLetters);
 
 function displayUserInput() {
-  var userDescription = document.querySelector(".user-description");
-  userDescription.innerText = currentActivity.description;
+  getDescription();
   getTime();
   getColor();
+}
+
+function getDescription() {
+  var userDescription = document.querySelector(".user-description");
+  userDescription.innerText = currentActivity.description;
 }
 
 function getTime() {
