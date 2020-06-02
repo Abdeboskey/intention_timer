@@ -4,9 +4,9 @@ html, body {
   height: 100%;
 }
 
-* {
+/* * {
   border: 1px dotted pink;
-}
+} */
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -156,13 +156,13 @@ label {
   font-weight: 400px;
 }
 
-.error-message > img {
+/* .error-message > img {
   height: 1.1em;
 }
 
 .error-message > span {
   /* margin-top: -5px; */
-}
+/* }  */
 
 .minutes-prompt {
   grid-column: 1 / 4;

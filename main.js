@@ -6,25 +6,26 @@ var minutes = document.querySelector(".minutes-input");
 var seconds = document.querySelector(".seconds-input");
 var currentActivity;
 
-startActivityBtn.addEventListener('click', startActivity);
+startActivityBtn.addEventListener('click', validateInput); //revert back to startActivity
 activityButtons.addEventListener("click", selectActivity);
 timeInput.addEventListener("keydown", noLetters);
 
-
-function validateInput() {
+function validateInput(event) {
+  event.preventDefault();
   var descriptionValue = description.value.trim();
   var minutesValue = minutes.value.trim();
   var secondsValue = seconds.value.trim();
 
   if (descriptionValue === "" || minutesValue === "" || secondsValue === "") {
    displayErrorMessage();
+  } else {
+   startActivity();
   }
 }
 
 function displayErrorMessage() {
-
+  document.querySelector(".error-message").classList.remove("hidden");
 }
-
 
 function displayUserInput() {
   getDescription();
@@ -59,20 +60,21 @@ function getColor() {
 }
 
 function startActivity(event) {
-  event.preventDefault();
   makeNewActivity(event);
-  toggleElement("new-activity-title", "new-activity-form");
-  toggleElement("current-activity-title", "timer-display");
+  //invoke validate function
+  // if currentActivity.category = "" etc
+  toggleElement("new-activity-title");
+  toggleElement("new-activity-form");
+  toggleElement("current-activity-title");
+  toggleElement("timer-display");
   displayUserInput();
 }
 
-function toggleElement(className1, className2) {
+function toggleElement(className1) {
   document.querySelector(`.${className1}`).classList.toggle("hidden");
-  document.querySelector(`.${className2}`).classList.toggle("hidden");
 }
 
 function makeNewActivity(event) {
-  event.preventDefault();
   var category = getCategory(activityButtons);
 
   currentActivity = new Activity(
@@ -80,7 +82,7 @@ function makeNewActivity(event) {
     description.value.trim(),
     minutes.value.trim(),
     seconds.value.trim()
-  );
+  )
 }
 
 function getCategory(parent) {
