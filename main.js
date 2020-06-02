@@ -12,9 +12,110 @@ activityButtons.addEventListener("click", selectActivity);
 // startTimerButton.addEventListener("click", startTimer);
 timeInput.addEventListener("keydown", noLetters);
 
-function startTimer() {
-  currentActivity.countdown();
+function buttonSelect(button, image, category) {
+  button.classList.remove("btn-default");
+  button.classList.add(`${category}-selected`);
+  image.src = `assets/${category}-active.svg`;
 }
+
+function buttonDefault(button, image, category) {
+  button.classList.add("btn-default");
+  button.classList.remove(`${category}-selected`);
+  image.src = `assets/${category}.svg`;
+}
+
+function noLetters(event) {
+  if ([69, 187, 188, 189, 190].includes(event.keyCode)) {
+    event.preventDefault();
+  }
+}
+
+function startActivity(event) {
+  event.preventDefault();
+  makeNewActivity(event);
+  validateInputs();
+  if (checkInputs()) {
+    toggleElement("new-activity-title");
+    toggleElement("new-activity-form");
+    toggleElement("current-activity-title");
+    toggleElement("timer-display");
+    displayUserInput();
+  }
+}
+
+function makeNewActivity() {
+  var category = getCategory(activityButtons);
+
+  currentActivity = new Activity(
+    category.trim(),
+    description.value.trim(),
+    minutes.value.trim(),
+    seconds.value.trim()
+  );
+}
+
+function validateInputs() {
+  validateInput(currentActivity.description, "description"); // had to do function for each otherwise it wouldn't display all of them
+  validateInput(currentActivity.minutes, "minutes");
+  validateInput(currentActivity.seconds, "seconds");
+  validateCategory();
+}
+
+function checkInputs() {
+  if (validateCategory() ||
+      validateInput(currentActivity.description, "description") ||
+      validateInput(currentActivity.minutes, "minutes") ||
+      validateInput(currentActivity.seconds, "seconds")
+    )
+    {
+    return false;
+  }
+  return true;
+}
+
+
+function validateCategory() {
+  if (currentActivity.category === "") {
+    displayErrorMessage("category");
+    return true;
+  } else {
+    removeErrorMessage("category");
+    return false;
+  }
+}
+
+function validateInput(currentActivity, input){
+  if (currentActivity === "") {
+    displayErrorMessage(input);
+    changeInputColor(input);
+    return true;
+  } else {
+    removeErrorMessage(input);
+    defaultInputColor(input);
+    return false;
+  }
+}
+
+function displayErrorMessage(section) {
+  document.querySelector(`.${section}-error`).classList.remove("hidden");
+}
+
+function removeErrorMessage(section) {
+  document.querySelector(`.${section}-error`).classList.add("hidden");
+}
+
+function changeInputColor(section) {
+  document.querySelector(`.${section}-input`).classList.add("input-error-color");
+}
+
+function defaultInputColor(section) {
+  document.querySelector(`.${section}-input`).classList.remove("input-error-color");
+}
+
+function toggleElement(className1) {
+  document.querySelector(`.${className1}`).classList.toggle("hidden");
+}
+
 function displayUserInput() {
   getDescription();
   getTime();
@@ -47,97 +148,13 @@ function getColor() {
   }
 }
 
-function startActivity(event) {
-  event.preventDefault();
-  makeNewActivity(event);
-  validateInputs();
-  if (checkInputs()) {
-    toggleElement("new-activity-title");
-    toggleElement("new-activity-form");
-    toggleElement("current-activity-title");
-    toggleElement("timer-display");
-    displayUserInput();
-  }
-}
-
-function makeNewActivity() {
-  var category = getCategory(activityButtons);
-
-  currentActivity = new Activity(
-    category.trim(),
-    description.value.trim(),
-    minutes.value.trim(),
-    seconds.value.trim()
-  )
-}
-
-function validateInputs() {
-  validateInput(currentActivity.description, "description"); // had to do function for each otherwise it wouldn't display all of them
-  validateInput(currentActivity.minutes, "minutes");
-  validateInput(currentActivity.seconds, "seconds");
-  validateCategory();
-}
-
-function checkInputs() {
-  if (validateCategory() ||
-      validateInput(currentActivity.description, "description") ||
-      validateInput(currentActivity.minutes, "minutes") ||
-      validateInput(currentActivity.seconds, "seconds")
-      )
-    {
-    return false;
-  }
-  return true;
-}
-
-
-function validateCategory() {
-  if (currentActivity.category === "") {
-    displayErrorMessage("category");
-    return true;
-  } else {
-    removeErrorMessage("category");
-    return false;
-  }
-}
-
-function validateInput(currentActivity, input){
-  if (currentActivity === "") {
-    displayErrorMessage(input);
-    changeInputColor(input);
-    return true;
-  } else {
-    removeErrorMessage(input);
-    defaultInputColor(input);
-  }
-}
-
-function displayErrorMessage(section) {
-  document.querySelector(`.${section}-error`).classList.remove("hidden");
-}
-
-function removeErrorMessage(section) {
-  document.querySelector(`.${section}-error`).classList.add("hidden");
-}
-
-function changeInputColor(section) {
-  document.querySelector(`.${section}-input`).classList.add("input-error-color");
-}
-
-function defaultInputColor(section) {
-  document.querySelector(`.${section}-input`).classList.remove("input-error-color");
-}
-
-function toggleElement(className1) {
-  document.querySelector(`.${className1}`).classList.toggle("hidden");
-}
-
 function getCategory(parent) {
   for (var i = 0; i < parent.children.length; i++) {
     if (!parent.children[i].classList.contains("btn-default")) {
       return parent.children[i].innerText;
     }
-  } return "";
+  }
+  return "";
 }
 
 function selectActivity(event) {
@@ -164,20 +181,6 @@ function selectActivity(event) {
   }
 }
 
-function buttonSelect(button, image, category) {
-  button.classList.remove("btn-default");
-  button.classList.add(`${category}-selected`);
-  image.src = `assets/${category}-active.svg`;
-}
-
-function buttonDefault(button, image, category) {
-  button.classList.add("btn-default");
-  button.classList.remove(`${category}-selected`);
-  image.src = `assets/${category}.svg`;
-}
-
-function noLetters(event) {
-  if ([69, 187, 188, 189, 190].includes(event.keyCode)) {
-    event.preventDefault();
-  }
+function startTimer() {
+  currentActivity.countdown();
 }
