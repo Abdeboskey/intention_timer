@@ -337,7 +337,7 @@ input {
     height: auto;
     padding-left: 5px;
     padding-right: 5px;
-    grid-template-rows: 1fr 3fr 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 3fr 1fr 1fr 1fr;
   }
 
   form > p {
@@ -347,14 +347,25 @@ input {
 
   .activity-buttons {
     flex-direction: column;
-    align-content: center;
+    height: 4em;
   }
 
-    #study-button
-    #meditate-button
+    #study-button,
+    #meditate-button,
     #exercise-button {
-      height: 4em;
-      width:
+      align-self: center;
+    }
+
+    .user-goal-prompt,
+    .minutes-prompt,
+    .seconds-prompt {
+      margin-top: 1.2em;
+    }
+
+    .description-input,
+    .minutes-input,
+    .seconds-input {
+      height: 0.8em;
     }
 }
 
