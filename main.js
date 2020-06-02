@@ -6,27 +6,24 @@ var minutes = document.querySelector(".minutes-input");
 var seconds = document.querySelector(".seconds-input");
 var currentActivity;
 
-startActivityBtn.addEventListener('click', validateInput); //revert back to startActivity
+startActivityBtn.addEventListener('click', startActivity); //revert back to startActivity
 activityButtons.addEventListener("click", selectActivity);
 timeInput.addEventListener("keydown", noLetters);
 
-function validateInput(event) {
-  event.preventDefault();
-  var descriptionValue = description.value.trim();
-  var minutesValue = minutes.value.trim();
-  var secondsValue = seconds.value.trim();
-
-  if (descriptionValue === "" || minutesValue === "" || secondsValue === "") {
-   displayErrorMessage();
-  } else {
-   startActivity();
-  }
+function validateInput() {
+ if (currentActivity.description === "") {
+   displayErrorMessage('description');
+   changeInputColor('description');
+ }
 }
 
-function displayErrorMessage() {
-  document.querySelector(".error-message").classList.remove("hidden");
-}
+function displayErrorMessage(section) {
+  document.querySelector(`.${section}-error`).classList.remove("hidden");
+} //Do for each!
 
+function changeInputColor(section) {
+  document.querySelector(`.${section}-input`).classList.add("input-error-color")
+}
 function displayUserInput() {
   getDescription();
   getTime();
@@ -49,7 +46,7 @@ function getTime() {
 }
 
 function getColor() {
-  var startTimerButton = document.querySelector(".start-timer-button");
+  var startTimerButton = document.querySelector(".start-timer-button"); //needs .trim()
   if (currentActivity.category === "Study") {
     startTimerButton.classList.add("study-color");
   } else if (currentActivity.category === "Meditate") {
@@ -60,14 +57,17 @@ function getColor() {
 }
 
 function startActivity(event) {
+  event.preventDefault();
   makeNewActivity(event);
+  validateInput()
   //invoke validate function
   // if currentActivity.category = "" etc
-  toggleElement("new-activity-title");
-  toggleElement("new-activity-form");
-  toggleElement("current-activity-title");
-  toggleElement("timer-display");
-  displayUserInput();
+
+  // toggleElement("new-activity-title");
+  // toggleElement("new-activity-form");
+  // toggleElement("current-activity-title");
+  // toggleElement("timer-display");
+  // displayUserInput();
 }
 
 function toggleElement(className1) {
@@ -78,7 +78,7 @@ function makeNewActivity(event) {
   var category = getCategory(activityButtons);
 
   currentActivity = new Activity(
-    category.trim(),
+    category, //.trim() have to implement trim later?
     description.value.trim(),
     minutes.value.trim(),
     seconds.value.trim()
@@ -89,6 +89,8 @@ function getCategory(parent) {
   for (var i = 0; i < parent.children.length; i++) {
     if (!parent.children[i].classList.contains("btn-default")) {
       return parent.children[i].innerText;
+    } else {
+      return false;
     }
   }
 }
