@@ -9,13 +9,20 @@ class Activity {
   }
 
   countdown() {
-    setInterval(function() {  // keeps going forever if no
-      var timeDisplay = document.querySelector('.timer');
-      var totalSeconds = (this.minutes * 60) + this.seconds;
-      var activeMinutes = Math.floor((totalSeconds) / 60) % 60;
-      var activeSeconds = totalSeconds % 60;
-      //totalSeconds--;
-      ; console.log('hello');
+    var mins = parseInt(this.minutes);
+    var secs = parseInt(this.seconds);
+    var totalSecs = (mins * 60) + secs;
+    var displayMins = Math.floor(totalSecs / 60);
+    var displaySecs = totalSecs % 60;
+    var userMins = document.querySelector(".user-minutes");
+    var userSecs = document.querySelector(".user-seconds");
+
+    setInterval(function() {
+      for (var i = totalSecs; i >= 0; totalSecs--) {
+      userMins.innerText = ("0" + displayMins).slice(-2);
+      userSecs.innerText = ("0" + displaySecs).slice(-2);
+      console.log(totalSecs);
+      }
     }, 1000)
   }
 

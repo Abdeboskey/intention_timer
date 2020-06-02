@@ -9,7 +9,7 @@ var currentActivity;
 
 startActivityBtn.addEventListener("click", startActivity); //revert back to startActivity
 activityButtons.addEventListener("click", selectActivity);
-// startTimerButton.addEventListener("click", startTimer);
+startTimerButton.addEventListener("click", startTimer);
 timeInput.addEventListener("keydown", noLetters);
 
 function buttonSelect(button, image, category) {
@@ -72,7 +72,6 @@ function checkInputs() {
   }
   return true;
 }
-
 
 function validateCategory() {
   if (currentActivity.category === "") {
@@ -181,6 +180,7 @@ function selectActivity(event) {
   }
 }
 
-function startTimer() {
+function startTimer(event) {
+  event.preventDefault();
   currentActivity.countdown();
 }
