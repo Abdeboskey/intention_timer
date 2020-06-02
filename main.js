@@ -1,16 +1,20 @@
 var activityButtons = document.querySelector(".activity-buttons");
 var startActivityBtn = document.querySelector(".start-activity-button");
+var startTimerButton = document.querySelector(".start-timer-button");
 var timeInput = document.querySelector(".time-input"); // refactor???
 var description = document.querySelector(".description-input");
 var minutes = document.querySelector(".minutes-input");
 var seconds = document.querySelector(".seconds-input");
 var currentActivity;
 
-startActivityBtn.addEventListener('click', startActivity); //revert back to startActivity
+startActivityBtn.addEventListener("click", startActivity); //revert back to startActivity
 activityButtons.addEventListener("click", selectActivity);
+startTimerButton.addEventListener("click", startTimer);
 timeInput.addEventListener("keydown", noLetters);
 
-
+function startTimer() {
+  currentActivity.countdown();
+}
 function displayUserInput() {
   getDescription();
   getTime();
@@ -33,7 +37,7 @@ function getTime() {
 }
 
 function getColor() {
-  var startTimerButton = document.querySelector(".start-timer-button"); //needs .trim()
+  //var startTimerButton = document.querySelector(".start-timer-button"); // made global
   if (currentActivity.category === "Study") {
     startTimerButton.classList.add("study-color");
   } else if (currentActivity.category === "Meditate") {
@@ -48,7 +52,6 @@ function startActivity(event) {
   makeNewActivity(event);
   validateInputs();
   if (checkInputs()) {
-    console.log("Inputs works");
     toggleElement("new-activity-title");
     toggleElement("new-activity-form");
     toggleElement("current-activity-title");
@@ -77,10 +80,8 @@ function validateInputs() {
 
 function checkInputs() {
   if (validateCategory() || validateDescription() || validateMinutes() || validateSeconds()) {
-    console.log('falseTest');
     return false;
-  } console.log('trueTest');
-  return true;
+  } return true;
 }
 function validateCategory() {
  if (currentActivity.category === "") {

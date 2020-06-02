@@ -2,21 +2,20 @@ class Activity {
   constructor(category, description, minutes, seconds) {
     this.category = category;
     this.description = description;
-    this.minutes = minutes;
-    this.seconds = seconds;
+    this.minutes = parseInt(minutes);
+    this.seconds = parseInt(seconds);
     this.completed = false;
     this.id = Date.now();
   }
 
   countdown() {
-    setInterval(function() {
+    setInterval(function() {  // keeps going forever if no
       var timeDisplay = document.querySelector('.timer');
       var totalSeconds = (this.minutes * 60) + this.seconds;
-      var activeMinutes = Math.floor((totalSeconds)/60) % 60;
+      var activeMinutes = Math.floor((totalSeconds) / 60) % 60;
       var activeSeconds = totalSeconds % 60;
-      for (var i = total.seconds; i = 0; i--) {
-        console.log()
-      }
+      //totalSeconds--;
+      ; console.log('hello');
     }, 1000)
   }
 
