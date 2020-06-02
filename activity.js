@@ -9,8 +9,14 @@ class Activity {
   }
 
   countdown() {
-    // handles activity timer
-    // uses this.minutes and this.seconds
+    setInterval(function() {  // keeps going forever if no
+      var timeDisplay = document.querySelector('.timer');
+      var totalSeconds = (this.minutes * 60) + this.seconds;
+      var activeMinutes = Math.floor((totalSeconds) / 60) % 60;
+      var activeSeconds = totalSeconds % 60;
+      //totalSeconds--;
+      ; console.log('hello');
+    }, 1000)
   }
 
   markComplete() {
