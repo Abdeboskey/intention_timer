@@ -2,7 +2,7 @@
 
 Intention Timer is an application that allows a user to set goals for their health and productivity, tied to an amount of time. Users can customize the timer by selecting an activity category, (either "Study", "Meditate", or "Exercise"), providing a short description of their goal, and decide on how many minutes and seconds the timer will count down. When a user finishes an activity, they can choose to log that activity and associated values to a collection of saved activities which they can review any time.
 
-This project is the first group project of Turing School of Software and Design's 2005 FEE Mod 1 inning. The project is designed to further our understanding of writing semantic html, conventional and responsive CSS, and functional JavaScript focusing on using querySelectors, eventListeners and event handler functions to create dynamic and developer-friendly applications.
+This project is the first group project of Turing School of Software and Design's 2005 FEE Mod 1 inning. The project is designed to develop our understanding of writing semantic html, conventional and responsive CSS, and functional JavaScript focusing on using querySelectors, eventListeners and event handler functions to create dynamic and developer-friendly applications that can use localStorage.
 
 ## Application and Functionality
 
@@ -26,7 +26,13 @@ This project is the first group project of Turing School of Software and Design'
 
 [Gif of error messages being displayed on button click]()
 
-*
+* If all parameters have been specified, the input form will no longer display and instead we will see the user's goal, specified minutes and seconds, and a large round "START" button with the associated color of the selected activity type.
+
+[Gif of Start Activity button being clicked, and Timer Display being shown]()
+
+* When the "START" button is clicked, the timer will begin counting down.
+
+[Gif of timer counting down once START button has been clicked]()
 
 ## Contributors
 
