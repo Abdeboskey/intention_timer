@@ -30,17 +30,29 @@
           Exercise
           </button>
         </div>
+        <div class="category-error hidden">
+          <img src="assets/warning.svg" alt="Triangular warning icon">
+          <span>A category is required.</span>
+        </div>
         <label class="user-goal-prompt">What would you like to accomplish during this time?</label>
         <input class="description-input"/>
-        <div class="error-message hidden">
+        <div class="description-error hidden">
           <img src="assets/warning.svg" alt="Triangular warning icon">
-          <span>All fields are required.</span>
+          <span>A description is required.</span>
         </div>
         <label class="minutes-prompt">Minutes</label>
         <label class="seconds-prompt">Seconds</label>
         <div class="time-input">
           <input class="minutes-input" type="number" min="0" max="100"/>
           <input class="seconds-input" type="number" min="0" max="59"/>
+        </div>
+        <div class="minutes-error hidden">
+          <img src="assets/warning.svg" alt="Triangular warning icon">
+          <span>An amount is required.</span>
+        </div>
+        <div class="seconds-error hidden">
+          <img src="assets/warning.svg" alt="Triangular warning icon">
+          <span>An amount is required.</span>
         </div>
         <button class="start-activity-button">START ACTIVITY</button>
       </form>

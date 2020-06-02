@@ -6,26 +6,10 @@ var minutes = document.querySelector(".minutes-input");
 var seconds = document.querySelector(".seconds-input");
 var currentActivity;
 
-startActivityBtn.addEventListener('click', validateInput); //revert back to startActivity
+startActivityBtn.addEventListener('click', startActivity); //revert back to startActivity
 activityButtons.addEventListener("click", selectActivity);
 timeInput.addEventListener("keydown", noLetters);
 
-function validateInput(event) {
-  event.preventDefault();
-  var descriptionValue = description.value.trim();
-  var minutesValue = minutes.value.trim();
-  var secondsValue = seconds.value.trim();
-
-  if (descriptionValue === "" || minutesValue === "" || secondsValue === "") {
-   displayErrorMessage();
-  } else {
-   startActivity();
-  }
-}
-
-function displayErrorMessage() {
-  document.querySelector(".error-message").classList.remove("hidden");
-}
 
 function displayUserInput() {
   getDescription();
@@ -49,7 +33,7 @@ function getTime() {
 }
 
 function getColor() {
-  var startTimerButton = document.querySelector(".start-timer-button");
+  var startTimerButton = document.querySelector(".start-timer-button"); //needs .trim()
   if (currentActivity.category === "Study") {
     startTimerButton.classList.add("study-color");
   } else if (currentActivity.category === "Meditate") {
@@ -60,21 +44,20 @@ function getColor() {
 }
 
 function startActivity(event) {
+  event.preventDefault();
   makeNewActivity(event);
-  //invoke validate function
-  // if currentActivity.category = "" etc
-  toggleElement("new-activity-title");
-  toggleElement("new-activity-form");
-  toggleElement("current-activity-title");
-  toggleElement("timer-display");
-  displayUserInput();
+  validateInputs();
+  if (checkInputs()) {
+    console.log("Inputs works");
+    toggleElement("new-activity-title");
+    toggleElement("new-activity-form");
+    toggleElement("current-activity-title");
+    toggleElement("timer-display");
+    displayUserInput();
+  }
 }
 
-function toggleElement(className1) {
-  document.querySelector(`.${className1}`).classList.toggle("hidden");
-}
-
-function makeNewActivity(event) {
+function makeNewActivity() {
   var category = getCategory(activityButtons);
 
   currentActivity = new Activity(
@@ -85,12 +68,69 @@ function makeNewActivity(event) {
   )
 }
 
+function validateInputs() {
+  validateDescription(); // had to do function for each otherwise it wouldn't display all of them
+  validateMinutes();
+  validateSeconds();
+  validateCategory();
+}
+
+function checkInputs() {
+  if (validateCategory() || validateDescription() || validateMinutes() || validateSeconds()) {
+    console.log('falseTest');
+    return false;
+  } console.log('trueTest');
+  return true;
+}
+function validateCategory() {
+ if (currentActivity.category === "") {
+   displayErrorMessage('category');
+   return true;
+ }
+}
+
+function validateDescription() {
+ if (currentActivity.description === "") {
+   displayErrorMessage('description');
+   changeInputColor('description');
+   return true;
+ }
+}
+
+function validateMinutes() {
+ if (currentActivity.minutes === "") {
+   displayErrorMessage('minutes');
+   changeInputColor('minutes');
+   return true;
+ }
+}
+
+function validateSeconds() {
+ if (currentActivity.seconds === "") {
+   displayErrorMessage('seconds');
+   changeInputColor('seconds');
+   return true;
+ }
+}
+
+function displayErrorMessage(section) {
+  document.querySelector(`.${section}-error`).classList.remove("hidden");
+} //Do for each!
+
+function changeInputColor(section) {
+  document.querySelector(`.${section}-input`).classList.add("input-error-color")
+}
+
+function toggleElement(className1) {
+  document.querySelector(`.${className1}`).classList.toggle("hidden");
+}
+
 function getCategory(parent) {
   for (var i = 0; i < parent.children.length; i++) {
     if (!parent.children[i].classList.contains("btn-default")) {
       return parent.children[i].innerText;
     }
-  }
+  } return "";
 }
 
 function selectActivity(event) {
