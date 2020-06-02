@@ -9,7 +9,7 @@ var currentActivity;
 
 startActivityBtn.addEventListener("click", startActivity); //revert back to startActivity
 activityButtons.addEventListener("click", selectActivity);
-startTimerButton.addEventListener("click", startTimer);
+// startTimerButton.addEventListener("click", startTimer);
 timeInput.addEventListener("keydown", noLetters);
 
 function startTimer() {
@@ -72,54 +72,60 @@ function makeNewActivity() {
 }
 
 function validateInputs() {
-  validateDescription(); // had to do function for each otherwise it wouldn't display all of them
-  validateMinutes();
-  validateSeconds();
+  validateInput(currentActivity.description, "description"); // had to do function for each otherwise it wouldn't display all of them
+  validateInput(currentActivity.minutes, "minutes");
+  validateInput(currentActivity.seconds, "seconds");
   validateCategory();
 }
 
 function checkInputs() {
-  if (validateCategory() || validateDescription() || validateMinutes() || validateSeconds()) {
+  if (validateCategory() ||
+      validateInput(currentActivity.description, "description") ||
+      validateInput(currentActivity.minutes, "minutes") ||
+      validateInput(currentActivity.seconds, "seconds")
+      )
+    {
     return false;
-  } return true;
+  }
+  return true;
 }
+
+
 function validateCategory() {
- if (currentActivity.category === "") {
-   displayErrorMessage('category');
-   return true;
- }
+  if (currentActivity.category === "") {
+    displayErrorMessage("category");
+    return true;
+  } else {
+    removeErrorMessage("category");
+    return false;
+  }
 }
 
-function validateDescription() {
- if (currentActivity.description === "") {
-   displayErrorMessage('description');
-   changeInputColor('description');
-   return true;
- }
-}
-
-function validateMinutes() {
- if (currentActivity.minutes === "") {
-   displayErrorMessage('minutes');
-   changeInputColor('minutes');
-   return true;
- }
-}
-
-function validateSeconds() {
- if (currentActivity.seconds === "") {
-   displayErrorMessage('seconds');
-   changeInputColor('seconds');
-   return true;
- }
+function validateInput(currentActivity, input){
+  if (currentActivity === "") {
+    displayErrorMessage(input);
+    changeInputColor(input);
+    return true;
+  } else {
+    removeErrorMessage(input);
+    defaultInputColor(input);
+  }
 }
 
 function displayErrorMessage(section) {
   document.querySelector(`.${section}-error`).classList.remove("hidden");
-} //Do for each!
+}
+
+function removeErrorMessage(section) {
+  document.querySelector(`.${section}-error`).classList.add("hidden");
+}
 
 function changeInputColor(section) {
-  document.querySelector(`.${section}-input`).classList.add("input-error-color")
+  document.querySelector(`.${section}-input`).classList.add("input-error-color");
+}
+
+function defaultInputColor(section) {
+  document.querySelector(`.${section}-input`).classList.remove("input-error-color");
 }
 
 function toggleElement(className1) {
