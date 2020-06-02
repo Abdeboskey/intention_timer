@@ -18,10 +18,6 @@ body {
   color: #CBC9CF;
 }
 
-.hidden {
-  display: none;
-}
-
 header {
   grid-column: 1 / -1;
   display: flex;
@@ -142,14 +138,31 @@ label {
 
 .description-input {
   grid-column: 1 / -1;
+  grid-row: 4 / 5;
   height: 25px;
   padding-top: 25px;
   /* margin-bottom: 0; */
   color: #CBC9CF;
   font: inherit;
   font-size: 1.2em;
-
 }
+
+.error-message {
+  color: #EFB7EC;
+  grid-column: 1 / -1;
+  grid-row: 4 / 5;
+  margin-top: 65px;
+  font-size: 1.1em;
+  font-weight: 400px;
+}
+
+/* .error-message > img {
+  height: 1.1em;
+}
+
+.error-message > span {
+  /* margin-top: -5px; */
+/* }  */
 
 .minutes-prompt {
   grid-column: 1 / 4;
@@ -162,11 +175,13 @@ label {
   margin-left: 55px;
   margin-bottom: 20px;
 }
+
 .time-input {
   grid-column: 1 / -1;
   display: flex;
   justify-content: space-between;
 }
+
 .minutes-input {
   height: 25px;
   width: 260px;
@@ -245,5 +260,23 @@ input {
   margin-top: 40px;
   background: transparent;
   color: #FFF;
-  border: 3.75px solid rebeccapurple;
+  border: 3.75px solid;
+  outline: none;
+}
+
+.study-color {
+  border-color: #B3FD78;
+}
+
+.meditate-color {
+  border-color: #C278FD;
+}
+
+.exercise-color {
+  border-color: #FD8078;
+}
+
+
+.hidden {
+  display: none;
 }

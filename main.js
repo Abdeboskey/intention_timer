@@ -1,39 +1,88 @@
 var activityButtons = document.querySelector(".activity-buttons");
 var startActivityBtn = document.querySelector(".start-activity-button");
-var timeInput = document.querySelector(".time-input");
+var timeInput = document.querySelector(".time-input"); // refactor???
+var description = document.querySelector(".description-input");
+var minutes = document.querySelector(".minutes-input");
+var seconds = document.querySelector(".seconds-input");
 var currentActivity;
 
-startActivityBtn.addEventListener('click', startActivity);
+startActivityBtn.addEventListener('click', validateInput); //revert back to startActivity
 activityButtons.addEventListener("click", selectActivity);
 timeInput.addEventListener("keydown", noLetters);
 
-// Start HERE next time
+function validateInput(event) {
+  event.preventDefault();
+  var descriptionValue = description.value.trim();
+  var minutesValue = minutes.value.trim();
+  var secondsValue = seconds.value.trim();
+
+  if (descriptionValue === "" || minutesValue === "" || secondsValue === "") {
+   displayErrorMessage();
+  } else {
+   startActivity();
+  }
+}
+
+function displayErrorMessage() {
+  document.querySelector(".error-message").classList.remove("hidden");
+}
+
+function displayUserInput() {
+  getDescription();
+  getTime();
+  getColor();
+}
+
+function getDescription() {
+  var userDescription = document.querySelector(".user-description");
+  userDescription.innerText = currentActivity.description;
+}
+
+function getTime() {
+  var userMinutes = document.querySelector(".user-minutes");
+  var userSeconds = document.querySelector(".user-seconds");
+  var dblDigitMinutes = ("0" + currentActivity.minutes).slice(-2);
+  var dblDigitSeconds = ("0" + currentActivity.seconds).slice(-2);
+
+  userMinutes.innerText = dblDigitMinutes;
+  userSeconds.innerText = dblDigitSeconds;
+}
+
+function getColor() {
+  var startTimerButton = document.querySelector(".start-timer-button");
+  if (currentActivity.category === "Study") {
+    startTimerButton.classList.add("study-color");
+  } else if (currentActivity.category === "Meditate") {
+    startTimerButton.classList.add("meditate-color");
+  } else if (currentActivity.category === "Exercise") {
+    startTimerButton.classList.add("exercise-color");
+  }
+}
 
 function startActivity(event) {
   makeNewActivity(event);
-  toggleElement("new-activity-title", "new-activity-form");
-  toggleElement("current-activity-title", "timer-display");
-  // if statement to assign color to start button circle
+  //invoke validate function
+  // if currentActivity.category = "" etc
+  toggleElement("new-activity-title");
+  toggleElement("new-activity-form");
+  toggleElement("current-activity-title");
+  toggleElement("timer-display");
+  displayUserInput();
 }
 
-function toggleElement(className1, className2) {
-  document.querySelector(`.${className1}`).classList.toggle(`hidden`);
-  document.querySelector(`.${className2}`).classList.toggle(`hidden`);
+function toggleElement(className1) {
+  document.querySelector(`.${className1}`).classList.toggle("hidden");
 }
 
 function makeNewActivity(event) {
-  event.preventDefault();
   var category = getCategory(activityButtons);
-  var description = document.querySelector(".description-input");
-  var minutes = document.querySelector(".minutes-input");
-  var seconds = document.querySelector(".seconds-input");
 
   currentActivity = new Activity(
     category.trim(),
     description.value.trim(),
     minutes.value.trim(),
     seconds.value.trim()
-  );
+  )
 }
 
 function getCategory(parent) {
