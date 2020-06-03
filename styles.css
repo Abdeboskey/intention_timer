@@ -301,13 +301,6 @@ input {
   font-style: bold;
 }
 
-.past-activities > p {
-  text-align: center;
-  line-height: 1.8;
-  font-size: .95em;
-  margin-top: 30px;
-}
-
 .start-timer-button {
   font-size: 1.5em;
   border-radius: 50%;
@@ -319,6 +312,23 @@ input {
   color: #FFF;
   border: 3.75px solid;
   outline: none;
+}
+
+.log-activity-button {
+  height: 40px;
+  width: 240px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: #46424D;
+  margin-top: 30px;
+}
+
+.past-activities > p {
+  text-align: center;
+  line-height: 1.8;
+  font-size: .95em;
+  margin-top: 30px;
 }
 
 .study-color {
