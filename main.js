@@ -1,3 +1,9 @@
+var studyButton = document.getElementById("study-button"); //////// These are all from the selectActivity function
+var studyImage = document.querySelector(".study-img"); //////////// as per Scott's suggestion
+var meditateButton = document.getElementById("meditate-button"); //
+var meditateImage = document.querySelector(".meditate-img"); //////
+var exerciseButton = document.getElementById("exercise-button"); //
+var exerciseImage = document.querySelector(".exercise-img"); //////
 var activityButtons = document.querySelector(".activity-buttons");
 var startActivityBtn = document.querySelector(".start-activity-button");
 var startTimerButton = document.querySelector(".start-timer-button");
@@ -19,13 +25,6 @@ timeInput.addEventListener("keydown", noLetters);
 
 function selectActivity(event) {
   event.preventDefault();
-  var studyButton = document.getElementById("study-button");
-  var studyImage = document.querySelector(".study-img");
-  var meditateButton = document.getElementById("meditate-button");
-  var meditateImage = document.querySelector(".meditate-img");
-  var exerciseButton = document.getElementById("exercise-button");
-  var exerciseImage = document.querySelector(".exercise-img");
-
   if (event.target.classList.contains("study")) {
     buttonSelect(studyButton, studyImage, "study");
     buttonDefault(meditateButton, meditateImage, "meditate");
@@ -121,6 +120,7 @@ function defaultInputColor(section) {
 }
 // Same with this ^ and removeErrorMessage? Would clean up this setion AND the function above.
 // Is it SRP, since both functions contribute to displaying/hiding the error message?
+// For some reason that I can't remember right now, this ^ broke something when I tried to make this change.
 
 function toggleElement(className1) {
   document.querySelector(`.${className1}`).classList.toggle("hidden");
