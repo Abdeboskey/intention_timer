@@ -398,7 +398,26 @@ input {
     width: 42%;
     padding-left: none;
     padding-right: none;
+  }
 
+  .minutes-error {
+    margin-left: 30%;
+    margin-right: -32%;
+  }
+
+  .seconds-error {
+    margin-left: 10%;
+    margin-right: 22.05%;
+  }
+
+  .time-input {
+    margin-left: 11%;
+    margin-right: 11%;
+  }
+
+  .minutes-input,
+  .seconds-input {
+    width: 42%;
   }
  }
 @media screen and (max-width: 400px) {
