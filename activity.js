@@ -21,6 +21,7 @@ class Activity {
 
   markComplete() {
     this.completed = true;
+    startTimerButton.innerText = "COMPLETE!"
   }
 
   saveToStorage() {
