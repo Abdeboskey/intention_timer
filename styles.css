@@ -336,8 +336,112 @@ input {
 .hidden {
   display: none;
 }
+@media screen and (max-width: 1300px) {
 
-@media screen and (max-width: 400px) {
+  form {
+    padding-top: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+   }
+
+  form > p {
+     margin-left: 11%;
+   }
+
+  #study-button {
+    min-width: 4.5em;
+  }
+
+  #meditate-button {
+    min-width: 4.5em;
+  }
+
+  #exercise-button {
+    min-width: 4.5em;
+  }
+
+  .activity-buttons {
+    margin-left: 11%;
+    margin-right: 11%;
+    justify-content: space-between;
+  }
+
+  .user-goal-prompt {
+    margin-left: 11%;
+    margin-right: 11%;
+    text-align: center;
+  }
+
+  .description-input {
+    margin-left: 11%;
+    margin-right: 11%;
+  }
+
+  .description-error {
+    margin-left: 11%;
+    font-size: 1em;
+  }
+
+  .time-prompt {
+    margin-left: 11%;
+    margin-right: 11%;
+  }
+
+  .minutes-prompt {
+    width: 42%;
+    margin-right: 15%
+  }
+
+  .seconds-prompt {
+    margin-right: 0;
+    width: 42%;
+    padding-left: none;
+    padding-right: none;
+  }
+
+  .minutes-error {
+    margin-left: 30%;
+    margin-right: -32%;
+  }
+
+  .seconds-error {
+    margin-left: 10%;
+    margin-right: 22.05%;
+  }
+
+  .time-input {
+    margin-left: 11%;
+    margin-right: 11%;
+  }
+
+  .minutes-input,
+  .seconds-input {
+    width: 42%;
+  }
+
+  .start-activity-button {
+    grid-row: 7 / 8;
+    grid-column: 4 / 7;
+    margin-left: 27%;
+    margin-right: 15%;
+    max-width: 50%;
+ }
+}
+
+@media screen and (max-width: 850px) {
+  body {
+    grid-template-columns: auto;
+    grid-template-rows: 40px auto;
+  }
+
+  .activity-buttons {
+    justify-content: space-between;
+    margin-right: 10%;
+    margin-left: 10%;
+  }
+}
+
+@media screen and (max-width: 420px) {
 
   body {
     grid-template-columns: auto;
@@ -469,14 +573,3 @@ input {
     height: 450px;
   }
 }
-
-/* @media screen and (max-width: 625px) {
-  .form {
-    max-width: 300px;
-    height: 100%;
-    align-self: center;
-    margin-left: auto;
-    margin-top: 1rem;
-    margin-right: auto;
-  } */
-/* } */
