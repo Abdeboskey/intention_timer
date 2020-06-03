@@ -419,6 +419,13 @@ input {
   .seconds-input {
     width: 42%;
   }
+
+  .start-activity-button {
+    grid-row: 7 / 8;
+    grid-column: 4 / 7;
+    margin-left: 27%;
+    margin-right: 15%;
+    max-width: 50%;
  }
 @media screen and (max-width: 400px) {
 
