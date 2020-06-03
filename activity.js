@@ -22,10 +22,11 @@ class Activity {
   markComplete() {
     this.completed = true;
     startTimerButton.innerText = "COMPLETE!"
+    toggleElement("log-activity-button");
   }
 
   saveToStorage() {
-    pastActivities.push(currentActivity);
+    //pastActivities.push(currentActivity);
     var stringOfThePast = JSON.stringify(pastActivities);
     localStorage.setItem("pastActivities", stringOfThePast);
   }

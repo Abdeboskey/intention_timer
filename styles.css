@@ -301,13 +301,6 @@ input {
   font-style: bold;
 }
 
-.past-activities > p {
-  text-align: center;
-  line-height: 1.8;
-  font-size: .95em;
-  margin-top: 30px;
-}
-
 .start-timer-button {
   font-size: 1.5em;
   border-radius: 50%;
@@ -319,6 +312,53 @@ input {
   color: #FFF;
   border: 3.75px solid;
   outline: none;
+}
+
+.log-activity-button {
+  height: 40px;
+  width: 240px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: #46424D;
+  margin-top: 30px;
+}
+
+.completed-display {
+  background: #46424D;
+  color: #FFF;
+  box-shadow: 10px 10px 8px .8px #26222D;
+  border-radius: 3px;
+  margin: 10px 30px 0px 30px;
+  height: 560px;
+  padding: 10px 120px 0px 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-section {
+  height: 40px;
+  width: 180px;
+  background: #46424D;
+  border-radius: 3px;
+}
+
+.completed-display > button {
+  height: 40px;
+  width: 280px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: #46424D;
+  margin-top: 60px;
+}
+
+.past-activities > p {
+  text-align: center;
+  line-height: 1.8;
+  font-size: .95em;
+  margin-top: 30px;
 }
 
 .study-color {

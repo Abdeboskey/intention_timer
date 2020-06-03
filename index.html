@@ -14,6 +14,7 @@
     <main>
       <h2 class="new-activity-title">New Activity</h2>
       <h2 class="current-activity-title hidden">Current Activity</h2>
+      <h2 class="completed-activity-title hidden">Completed Activity</h2>
       <form class="new-activity-form">
         <p>Select a category:</p>
         <div class="activity-buttons">
@@ -62,12 +63,17 @@
         <h3 class="user-description">Deep Breathing</h3>
         <div class="timer"><span class="user-minutes"></span>:<span class="user-seconds"></span></div>
         <button class="start-timer-button">START</button>
+        <button class="log-activity-button hidden">LOG ACTIVITY</button>
+      </section>
+      <section class="completed-display hidden">
+        <button>CREATE A NEW ACTIVITY</button>
       </section>
     </main>
     <section class="past-activities">
       <h2>Past Activities</h2>
-      <p>You haven't logged any activities yet.<br/>
+      <p class="no-activities-message">You haven't logged any activities yet.<br/>
         Complete the form to the left to get started!</p>
+      <section class="card-section hidden"></section>
     </section>
     <script src="activity.js"></script>
     <script src="main.js"></script>
