@@ -1,22 +1,21 @@
-var studyButton = document.getElementById("study-button"); //////// These are all from the selectActivity function
-var studyImage = document.querySelector(".study-img"); //////////// as per Scott's suggestion
-var meditateButton = document.getElementById("meditate-button"); //
-var meditateImage = document.querySelector(".meditate-img"); //////
-var exerciseButton = document.getElementById("exercise-button"); //
-var exerciseImage = document.querySelector(".exercise-img"); //////
+var studyButton = document.getElementById("study-button");
+var studyImage = document.querySelector(".study-img");
+var meditateButton = document.getElementById("meditate-button");
+var meditateImage = document.querySelector(".meditate-img");
+var exerciseButton = document.getElementById("exercise-button");
+var exerciseImage = document.querySelector(".exercise-img");
 var activityButtons = document.querySelector(".activity-buttons");
 var startActivityBtn = document.querySelector(".start-activity-button");
 var startTimerButton = document.querySelector(".start-timer-button");
-var timeInput = document.querySelector(".time-input"); // refactor???
+var timeInput = document.querySelector(".time-input");
 var description = document.querySelector(".description-input");
 var minutes = document.querySelector(".minutes-input");
 var seconds = document.querySelector(".seconds-input");
 var currentActivity;
 var pastActivities = [];
 
-startActivityBtn.addEventListener("click", startActivity); //revert back to startActivity
+startActivityBtn.addEventListener("click", startActivity);
 activityButtons.addEventListener("click", selectActivity);
-// startTimerButton.addEventListener("click", startTimer); ---> put in startActivity()
 timeInput.addEventListener("keydown", noLetters);
 // do we want these so that error messages disappear when text is typed? I don't think they fully work yet...
 // description.addEventListener("keydown", removeErrorMessage);
@@ -60,7 +59,7 @@ function noLetters(event) {
 }
 
 function validateInputs() {
-  validateInput(currentActivity.description, "description"); // had to do function for each otherwise it wouldn't display all of them
+  validateInput(currentActivity.description, "description");
   validateInput(currentActivity.minutes, "minutes");
   validateInput(currentActivity.seconds, "seconds");
   validateCategory();
@@ -82,10 +81,7 @@ function validateCategory() {
   if (currentActivity.category === "") {
     displayErrorMessage("category");
     return true;
-  } /* else {
-    removeErrorMessage("category"); <----- Put this in buttonSelect() so error disappears when any button is selected.
-    return false;
-  } */
+  }
 }
 
 function validateInput(currentActivity, input){
@@ -102,25 +98,19 @@ function validateInput(currentActivity, input){
 
 function displayErrorMessage(section) {
   document.querySelector(`.${section}-error`).classList.remove("hidden");
-  // document.querySelector(`.${section}-input`).classList.add("input-error-color"); // ?
 }
 
 function removeErrorMessage(section) {
   document.querySelector(`.${section}-error`).classList.add("hidden");
-  // document.querySelector(`.${section}-input`).classList.remove("input-error-color"); // ?
 }
 
 function changeInputColor(section) {
   document.querySelector(`.${section}-input`).classList.add("input-error-color");
 }
-// Should we refactor by putting this ^ inside displayErrorMessage?
 
 function defaultInputColor(section) {
   document.querySelector(`.${section}-input`).classList.remove("input-error-color");
 }
-// Same with this ^ and removeErrorMessage? Would clean up this setion AND the function above.
-// Is it SRP, since both functions contribute to displaying/hiding the error message?
-// For some reason that I can't remember right now, this ^ broke something when I tried to make this change.
 
 function toggleElement(className1) {
   document.querySelector(`.${className1}`).classList.toggle("hidden");
