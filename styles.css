@@ -382,6 +382,24 @@ input {
     margin-left: 11%;
     font-size: 1em;
   }
+
+  .time-prompt {
+    margin-left: 11%;
+    margin-right: 11%;
+  }
+
+  .minutes-prompt {
+    width: 42%;
+    margin-right: 15%
+  }
+
+  .seconds-prompt {
+    margin-right: 0;
+    width: 42%;
+    padding-left: none;
+    padding-right: none;
+
+  }
  }
 @media screen and (max-width: 400px) {
 
