@@ -366,6 +366,22 @@ input {
     margin-left: 11%;
     margin-right: 11%;
   }
+
+  .user-goal-prompt {
+    margin-left: 11%;
+    margin-right: 11%;
+    text-align: center;
+  }
+
+  .description-input {
+    margin-left: 11%;
+    margin-right: 11%;
+  }
+
+  .description-error {
+    margin-left: 11%;
+    font-size: 1em;
+  }
  }
 @media screen and (max-width: 400px) {
 
