@@ -192,6 +192,9 @@ function startTimer(event) {
 }
 
 function displayLoggedActivities() {
+  toggleElement("card-section");
+  toggleElement("no-activities-message");
+  toggleElement("timer-display");
   var cardSection = document.querySelector(".card-section");
   cardSection.innerHTML = "";
   for (var i = 0; i < pastActivities.length; i++) {
@@ -207,4 +210,18 @@ function displayLoggedActivities() {
     `;
     cardSection.innerHTML += activityCardHTML;
   }
+}
+
+var logActivityBtn = document.querySelector(".log-activity-button")
+logActivityBtn.addEventListener("click", logActivity);
+
+function logActivity() {
+  pastActivities.push(currentActivity);
+  displayLoggedActivities()
+  displayCompletedActivity()
+  currentActivity.saveToStorage();
+}
+
+function displayCompletedActivity() {
+  toggleElement("completed-activity");
 }

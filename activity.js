@@ -26,7 +26,7 @@ class Activity {
   }
 
   saveToStorage() {
-    pastActivities.push(currentActivity);
+    //pastActivities.push(currentActivity);
     var stringOfThePast = JSON.stringify(pastActivities);
     localStorage.setItem("pastActivities", stringOfThePast);
   }
