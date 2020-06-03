@@ -182,5 +182,14 @@ function selectActivity(event) {
 
 function startTimer(event) {
   event.preventDefault();
-  currentActivity.countdown();
+  currentActivity.countdown()
+  var timerInterval = setInterval(function () {
+    currentActivity.countdown()
+    if (currentActivity.totalSecs <= 0) {
+      clearInterval(timerInterval);
+    }
+  }, 1000);
 }
+
+// Prevent button from being clicked after timer starts (Disable Button)
+// create alert when timer reaches 0
