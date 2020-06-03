@@ -336,7 +336,37 @@ input {
 .hidden {
   display: none;
 }
+@media screen and (max-width: 1300px) {
 
+  form {
+    padding-top: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+   }
+
+  form > p {
+     margin-left: 11%;
+   }
+
+  #study-button {
+    min-width: 4.5em;
+  }
+
+  #meditate-button {
+    margin-left: 7%;
+    margin-right: 7%;
+    min-width: 4.5em;
+  }
+
+  #exercise-button {
+    min-width: 4.5em;
+  }
+
+  .activity-buttons {
+    margin-left: 11%;
+    margin-right: 11%;
+  }
+ }
 @media screen and (max-width: 400px) {
 
   body {
@@ -469,14 +499,3 @@ input {
     height: 450px;
   }
 }
-
-/* @media screen and (max-width: 625px) {
-  .form {
-    max-width: 300px;
-    height: 100%;
-    align-self: center;
-    margin-left: auto;
-    margin-top: 1rem;
-    margin-right: auto;
-  } */
-/* } */
