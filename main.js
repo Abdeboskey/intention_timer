@@ -193,7 +193,7 @@ function startTimer(event) {
 
 function displayLoggedActivities() {
   toggleElement("card-section");
-  toggleElement("no-activities-message");
+  toggleElement("no-activities-message"); //change to add hidden?
   createCard();
 }
 
@@ -208,7 +208,7 @@ function createCard() {
         <h4 class="time">${pastActivities[i].minutes} MIN ${pastActivities[i].seconds} SECONDS</h4>
         <p class="goal">${pastActivities[i].description}</p>
       </div>
-      <div class="activity-color ${pastActivities[i].category.toLowerCase()}-color"></div>
+      <div class="activity-color ${pastActivities[i].category.toLowerCase()}-card-color"></div>
     </section>
     `;
     cardSection.innerHTML += activityCardHTML;
