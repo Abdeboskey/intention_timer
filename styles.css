@@ -131,6 +131,7 @@ form > p {
   margin-top: 85px;
   font-size: 1.2em;
   font-weight: 400px;
+  text-align: center;
 }
 
 .category-error > img {
@@ -245,7 +246,7 @@ label {
   margin-top: 40px;
   font-size: .9em;
   font-weight: 400px;
-  margin-left: 50px;
+  margin-left: 80px;
 }
 
 .seconds-error > img {
@@ -337,6 +338,7 @@ input {
 }
 
 @media screen and (max-width: 400px) {
+
   body {
     grid-template-columns: auto;
     grid-template-rows: 40px auto;
@@ -433,14 +435,18 @@ input {
     grid-row: 2 / 3;
     height: 10px;
     margin-top: 140px;
-    margin-left: 35px;
+    /* margin-left: 35px; */
     font-size: 1.2em;
-    /* align-self: center; */
+    text-align: center;
   }
 
-  .seconds-error,
+  .seconds-error {
+    margin-top: 25px;
+    margin-left: 35px;
+  }
   .minutes-error {
-    margin-top: 20px;
+    margin-top: 25px;
+    margin-left: 3px;
   }
 
   .description-error {
@@ -458,9 +464,10 @@ input {
   .timer-display {
     margin-left: 1.2em;
     margin-right: 1.2em;
-    padding: 10px 30px 0px 30px;
+    margin-bottom: 25px;
+    padding: 10px 30px 30px 30px;
+    height: 450px;
   }
-
 }
 
 /* @media screen and (max-width: 625px) {
