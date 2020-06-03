@@ -179,15 +179,25 @@ label {
  } */
 
 .minutes-prompt {
-  grid-column: 1 / 4;
+  /* grid-column: 1 / 4; */
   margin-right: 55px;
   margin-bottom: 20px;
+  margin-top: 30px;
 }
 
 .seconds-prompt {
-  grid-column: 4 / 7;
-  margin-left: 55px;
+  /* grid-column: 4 / 7; */
+  /* margin-left: 55px; */
+  margin-right: 180px;
   margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.time-prompt {
+  grid-column: 1 / -1;
+  grid-row: 5 / 6;
+  display: flex;
+  justify-content: space-between;
 }
 
 .time-input {
@@ -326,7 +336,7 @@ input {
   display: none;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 400px) {
   body {
     grid-template-columns: auto;
     grid-template-rows: 40px auto;
@@ -339,11 +349,20 @@ input {
     padding-right: 10px;
     margin-left: 1.2em;
     margin-right: 1.2em;
-    grid-template-rows: 0.5fr 2.5fr 1fr 1fr 1fr 1fr;
+    margin-bottom: 25px;
+    grid-template-rows: 0.5fr 2.25fr 0.75fr 1fr 1fr 1fr;
   }
 
   h2 {
     margin-left: 1em;
+  }
+
+  main {
+    border-bottom: 2px solid #46424D;
+  }
+
+  .past-activities > h2 {
+    margin-top: 20px;
   }
 
   form > p {
@@ -360,6 +379,14 @@ input {
   #meditate-button,
   #exercise-button {
     align-self: center;
+    position: relative;
+  }
+
+  #study-button span,
+  #meditate-button span,
+  #exercise-button span {
+    position: absolute;
+    transform: translate(-50%, -50%);
   }
 
   .study-img,
@@ -368,16 +395,20 @@ input {
     float: left;
     padding-left: 1.2em;
     padding-top: 0.25em;
+    padding-bottom: 0.25em;
   }
 
-  .user-goal-prompt,
+  .user-goal-prompt {
+    margin-top: -20px;
+  }
+
   .minutes-prompt {
-    margin-top: 0;
+    margin-top: 25px;
   }
 
   .seconds-prompt {
-    margin-top: 1.2em;
-    margin-left: 2em;
+    margin-top: 25px;
+    margin-right: 37px;
   }
 
   .description-input {
@@ -396,6 +427,25 @@ input {
     height: 2.5em;
     margin-top: -0.5em;
     margin-bottom: 2em;
+  }
+
+  .category-error {
+    grid-row: 2 / 3;
+    height: 10px;
+    margin-top: 140px;
+    margin-left: 35px;
+    font-size: 1.2em;
+    /* align-self: center; */
+  }
+
+  .seconds-error,
+  .minutes-error {
+    margin-top: 20px;
+  }
+
+  .description-error {
+    margin-top: 50px;
+    margin-left: 35px;
   }
 
   .start-timer-button {
