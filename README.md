@@ -16,12 +16,12 @@ This project is the first group project of Turing School of Software and Design'
 * When a button is selected, it will change to a specific color associated with that activity. (Study: Green, Meditate: Purple, Exercise: Red)
 * If a new button is selected, it will change to its associated color and all other buttons will change back to the default, unselected color.
 
-![Gif of buttons being selected and changing color](assets/timerGifs/inputFields.gif)
+![Gif of buttons being selected and changing color]()
 
 * Users can set specific goals for each session by using the input field under the prompt "What would you like to accomplish during this time?"
 * Users will then set the timer by entering a specific number of minutes and seconds into the associated input fields. Only numerical values can be accepted in these fields.
 
-![Gif of goals, minutes and seconds being typed into associated input fields]()
+![Gif of goals, minutes and seconds being typed into associated input fields](assets/timerGifs/InputFields.gif)
 
 * If no activity button is selected, or any input fields are empty, an error message will display near the associated button/input field.
 
