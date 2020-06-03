@@ -335,9 +335,15 @@ input {
 
   form {
     height: auto;
-    padding-left: 5px;
-    padding-right: 5px;
-    grid-template-rows: 0.5fr 3fr 1fr 1fr 1fr;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 1.2em;
+    margin-right: 1.2em;
+    grid-template-rows: 0.5fr 2.5fr 1fr 1fr 1fr 1fr;
+  }
+
+  h2 {
+    margin-left: 1em;
   }
 
   form > p {
@@ -350,23 +356,61 @@ input {
     height: 4em;
   }
 
-    #study-button,
-    #meditate-button,
-    #exercise-button {
-      align-self: center;
-    }
+  #study-button,
+  #meditate-button,
+  #exercise-button {
+    align-self: center;
+  }
 
-    .user-goal-prompt,
-    .minutes-prompt,
-    .seconds-prompt {
-      margin-top: 1.2em;
-    }
+  .study-img,
+  .meditate-img,
+  .exercise-img {
+    float: left;
+    padding-left: 1.2em;
+    padding-top: 0.25em;
+  }
 
-    .description-input,
-    .minutes-input,
-    .seconds-input {
-      height: 0.8em;
-    }
+  .user-goal-prompt,
+  .minutes-prompt {
+    margin-top: 0;
+  }
+
+  .seconds-prompt {
+    margin-top: 1.2em;
+    margin-left: 2em;
+  }
+
+  .description-input {
+    height: 0.8em;
+  }
+
+  .minutes-input,
+  .seconds-input {
+    height: 0.8em;
+    width: 6.5em;
+  }
+
+  .start-activity-button {
+    grid-column-start: 2;
+    grid-column-end: 6;
+    height: 2.5em;
+    margin-top: -0.5em;
+    margin-bottom: 2em;
+  }
+
+  .start-timer-button {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    padding: 0;
+  }
+
+  .timer-display {
+    margin-left: 1.2em;
+    margin-right: 1.2em;
+    padding: 10px 30px 0px 30px;
+  }
+
 }
 
 /* @media screen and (max-width: 625px) {
