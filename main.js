@@ -112,8 +112,8 @@ function defaultInputColor(section) {
   document.querySelector(`.${section}-input`).classList.remove("input-error-color");
 }
 
-function toggleElement(className1) {
-  document.querySelector(`.${className1}`).classList.toggle("hidden");
+function toggleElement(className) {
+  document.querySelector(`.${className}`).classList.toggle("hidden");
 }
 
 function startActivity(event) {
@@ -189,4 +189,22 @@ function startTimer(event) {
       currentActivity.markComplete();
     }
   }, 1000);
+}
+
+function displayLoggedActivities() {
+  var cardSection = document.querySelector(".card-section");
+  cardSection.innerHTML = "";
+  for (var i = 0; i < pastActivities.length; i++) {
+    var activityCardHTML = `
+    <section class="activity-card" id=${pastActivities[i].id}>
+      <div class="card-text">
+        <label class="category">${pastActivities[i].category}</label>
+        <h4 class="time">${pastActivities[i].minutes} MIN ${pastActivities[i].seconds} SECONDS</h4>
+        <p class="goal">${pastActivities[i].description}</p>
+      </div>
+      <div class="activity-color ${pastActivities[i].category.toLowerCase()}-color"></div>
+    </section>
+    `;
+    cardSection.innerHTML += activityCardHTML;
+  }
 }

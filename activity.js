@@ -22,6 +22,7 @@ class Activity {
   markComplete() {
     this.completed = true;
     startTimerButton.innerText = "COMPLETE!"
+    toggleElement("log-activity-button");
   }
 
   saveToStorage() {
