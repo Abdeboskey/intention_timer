@@ -194,7 +194,10 @@ function startTimer(event) {
 function displayLoggedActivities() {
   toggleElement("card-section");
   toggleElement("no-activities-message");
-  toggleElement("timer-display");
+  createCard();
+}
+
+function createCard() {
   var cardSection = document.querySelector(".card-section");
   cardSection.innerHTML = "";
   for (var i = 0; i < pastActivities.length; i++) {
@@ -223,5 +226,14 @@ function logActivity() {
 }
 
 function displayCompletedActivity() {
-  toggleElement("completed-activity");
+  toggleElement("current-activity-title");
+  toggleElement("completed-display");
+  toggleElement("timer-display");
+  toggleElement("completed-activity-title");
+}
+
+function getFromStorage() {
+  var stringOfThePast = localStorage.getItem("pastActivities");
+  pastActivities.push(JSON.parse(stringOfThePast));
+
 }

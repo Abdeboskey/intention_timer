@@ -324,7 +324,7 @@ input {
   margin-top: 30px;
 }
 
-.completed-activity {
+.completed-display {
   background: #46424D;
   color: #FFF;
   box-shadow: 10px 10px 8px .8px #26222D;
@@ -344,7 +344,7 @@ input {
   border-radius: 3px;
 }
 
-.completed-activity > button {
+.completed-display > button {
   height: 40px;
   width: 280px;
   border: none;
