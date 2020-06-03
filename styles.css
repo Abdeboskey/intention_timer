@@ -353,8 +353,6 @@ input {
   }
 
   #meditate-button {
-    margin-left: 7%;
-    margin-right: 7%;
     min-width: 4.5em;
   }
 
@@ -365,6 +363,7 @@ input {
   .activity-buttons {
     margin-left: 11%;
     margin-right: 11%;
+    justify-content: space-between;
   }
 
   .user-goal-prompt {
@@ -427,7 +426,22 @@ input {
     margin-right: 15%;
     max-width: 50%;
  }
-@media screen and (max-width: 400px) {
+}
+
+@media screen and (max-width: 850px) {
+  body {
+    grid-template-columns: auto;
+    grid-template-rows: 40px auto;
+  }
+
+  .activity-buttons {
+    justify-content: space-between;
+    margin-right: 10%;
+    margin-left: 10%;
+  }
+}
+
+@media screen and (max-width: 420px) {
 
   body {
     grid-template-columns: auto;
