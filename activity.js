@@ -4,26 +4,29 @@ class Activity {
     this.description = description;
     this.minutes = minutes;
     this.seconds = seconds;
+    this.totalSecs = ((parseInt(this.minutes)) * 60) + (parseInt(this.seconds));
     this.completed = false;
     this.id = Date.now();
   }
 
   countdown() {
-    setInterval(function() {  // keeps going forever if no
-      var timeDisplay = document.querySelector('.timer');
-      var totalSeconds = (this.minutes * 60) + this.seconds;
-      var activeMinutes = Math.floor((totalSeconds) / 60) % 60;
-      var activeSeconds = totalSeconds % 60;
-      //totalSeconds--;
-      ; console.log('hello');
-    }, 1000)
+    this.totalSecs--;
+    var displayMins = Math.floor(this.totalSecs / 60);
+    var displaySecs = this.totalSecs % 60;
+    var userMins = document.querySelector(".user-minutes");
+    var userSecs = document.querySelector(".user-seconds");
+    userMins.innerText = `${("0" + displayMins).slice(-2)}`;
+    userSecs.innerText = `${("0" + displaySecs).slice(-2)}`;
   }
 
   markComplete() {
     this.completed = true;
+    startTimerButton.innerText = "COMPLETE!"
   }
 
   saveToStorage() {
     pastActivities.push(currentActivity);
+    var stringOfThePast = JSON.stringify(pastActivities);
+    localStorage.setItem("pastActivities", stringOfThePast);
   }
 }
