@@ -19,15 +19,15 @@
         <div class="activity-buttons">
           <button class="btn-default study" id="study-button">
             <img class="study-img study" src="assets/study.svg" alt="Image of lightbulb and book"><br/>
-          Study
+            <span>Study</span>
           </button>
           <button class="btn-default meditate" id="meditate-button">
             <img class="meditate-img meditate" src="assets/meditate.svg" alt="Image of lotus flower"><br/>
-          Meditate
+            <span>Meditate</span>
           </button>
           <button class="btn-default exercise" id="exercise-button">
             <img class="exercise-img exercise" src="assets/exercise.svg" alt="Image of shoes"><br/>
-          Exercise
+            <span>Exercise</span>
           </button>
         </div>
         <div class="category-error hidden">
@@ -40,8 +40,10 @@
           <img src="assets/warning.svg" alt="Triangular warning icon">
           <span>A description is required.</span>
         </div>
-        <label class="minutes-prompt">Minutes</label>
-        <label class="seconds-prompt">Seconds</label>
+        <div class="time-prompt">
+          <label class="minutes-prompt">Minutes</label>
+          <label class="seconds-prompt">Seconds</label>
+        </div>
         <div class="time-input">
           <input class="minutes-input" type="number" min="0" max="100"/>
           <input class="seconds-input" type="number" min="0" max="59"/>
