@@ -6,6 +6,7 @@ var description = document.querySelector(".description-input");
 var minutes = document.querySelector(".minutes-input");
 var seconds = document.querySelector(".seconds-input");
 var currentActivity;
+var pastActivities = [];
 
 startActivityBtn.addEventListener("click", startActivity); //revert back to startActivity
 activityButtons.addEventListener("click", selectActivity);
