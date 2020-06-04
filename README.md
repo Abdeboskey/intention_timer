@@ -16,7 +16,7 @@ This project is the first group project of Turing School of Software and Design'
 * When a button is selected, it will change to a specific color associated with that activity. (Study: Green, Meditate: Purple, Exercise: Red)
 * If a new button is selected, it will change to its associated color and all other buttons will change back to the default, unselected color.
 
-![Gif of buttons being selected and changing color](assets/timerGifs/buttonColor.gif)
+![Gif of buttons being selected and changing color](assets/timerGifs/buttonColors.gif)
 
 * Users can set specific goals for each session by using the input field under the prompt "What would you like to accomplish during this time?"
 * Users will then set the timer by entering a specific number of minutes and seconds into the associated input fields. Only numerical values can be accepted in these fields.
@@ -30,7 +30,7 @@ This project is the first group project of Turing School of Software and Design'
 * If all parameters have been specified and the user clicks the "Start Activity" button, the input form will no longer display and instead we will see the user's goal, specified minutes and seconds, and a large round "START" button with the associated color of the selected activity type.
 
 ![Gif of Start Activity button being clicked, and Timer Display being shown](assets/timerGifs/startActivityClick.gif)
-
+### Using the Timer
 * When the "START" button is clicked, the timer will begin counting down.
 
 ![Gif of timer counting down once START button has been clicked](assets/timerGifs/startTimerClick.gif)
@@ -38,14 +38,14 @@ This project is the first group project of Turing School of Software and Design'
 * When the timer reaches 00:00 an alert will pop up and the option to log activity will appear.
 
 ![Gif of timer reaching zero](assets/timerGifs/countdown.gif)
-
+### Saving Past Activities
 * When the log activity button is clicked, the activity is logged in the past activities section.
 
 ![Gif of activity being logged in past activities](assets/timerGifs/createCard.gif)
 
-* When the page is refreshed, the past activities display remains.
+* When the page is refreshed, the past activities persist and are automatically propogated.
 
-![Gif of full page functionality](assets/fullFunctionality.gif)
+![Gif of full page functionality](assets/timerGifs/fullFunctionality.gif)
 
 ## Contributors
 
