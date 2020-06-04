@@ -21,7 +21,7 @@ This project is the first group project of Turing School of Software and Design'
 * Users can set specific goals for each session by using the input field under the prompt "What would you like to accomplish during this time?"
 * Users will then set the timer by entering a specific number of minutes and seconds into the associated input fields. Only numerical values can be accepted in these fields.
 
-![Gif of goals, minutes and seconds being typed into associated input fields](assets/timerGifs/InputFields.gif)
+![Gif of goals, minutes and seconds being typed into associated input fields](assets/timerGifs/inputs.gif)
 
 * If no activity button is selected, or any input fields are empty, an error message will display near the associated button/input field.
 
