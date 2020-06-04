@@ -136,8 +136,8 @@ function startActivity(event) {
     toggleElement("current-activity-title");
     toggleElement("timer-display");
     displayUserInput();
+    document.querySelector(".new-activity-form").reset();
   }
-  document.querySelector(".new-activity-form").reset();
 }
 
 function makeNewActivity() {
