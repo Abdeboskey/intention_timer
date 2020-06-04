@@ -11,12 +11,16 @@ var timeInput = document.querySelector(".time-input");
 var description = document.querySelector(".description-input");
 var minutes = document.querySelector(".minutes-input");
 var seconds = document.querySelector(".seconds-input");
+var createNewButton = document.querySelector(".create-new-button");
 var currentActivity;
 var pastActivities = [];
+
+// window.onload = getFromStorage();
 
 startActivityBtn.addEventListener("click", startActivity);
 activityButtons.addEventListener("click", selectActivity);
 timeInput.addEventListener("keydown", noLetters);
+createNewButton.addEventListener("click", createNewActivity);
 // do we want these so that error messages disappear when text is typed? I don't think they fully work yet...
 // description.addEventListener("keydown", removeErrorMessage);
 // minutes.addEventListener("keydown", removeErrorMessage);
@@ -116,11 +120,20 @@ function toggleElement(className) {
   document.querySelector(`.${className}`).classList.toggle("hidden");
 }
 
+function hideElement(className) {
+  document.querySelector(`.${className}`).classList.add("hidden");
+}
+
+function displayElement(className) {
+  document.querySelector(`.${className}`).classList.remove("hidden");
+}
+
 function startActivity(event) {
   event.preventDefault();
   startTimerButton.addEventListener("click", startTimer);
   makeNewActivity(event);
   validateInputs();
+  resetTimer();
   if (checkInputs()) {
     toggleElement("new-activity-title");
     toggleElement("new-activity-form");
@@ -128,7 +141,9 @@ function startActivity(event) {
     toggleElement("timer-display");
     displayUserInput();
   }
+  document.querySelector(".new-activity-form").reset();
 }
+
 
 function makeNewActivity() {
   var category = getCategory(activityButtons);
@@ -192,8 +207,8 @@ function startTimer(event) {
 }
 
 function displayLoggedActivities() {
-  toggleElement("card-section");
-  toggleElement("no-activities-message"); //change to add hidden?
+  displayElement("card-section");
+  hideElement("no-activities-message"); //change to add hidden?
   createCard();
 }
 
@@ -220,9 +235,14 @@ logActivityBtn.addEventListener("click", logActivity);
 
 function logActivity() {
   pastActivities.push(currentActivity);
-  displayLoggedActivities()
-  displayCompletedActivity()
+  displayLoggedActivities();
+  displayCompletedActivity();
   currentActivity.saveToStorage();
+}
+
+function resetTimer() {
+  startTimerButton.innerText = "START";
+  hideElement("log-activity-button");
 }
 
 function displayCompletedActivity() {
@@ -232,8 +252,19 @@ function displayCompletedActivity() {
   toggleElement("completed-activity-title");
 }
 
-function getFromStorage() {
+function getFromStorage(event) {
+  event.preventDefault();
   var stringOfThePast = localStorage.getItem("pastActivities");
   pastActivities.push(JSON.parse(stringOfThePast));
 
+  if (pastActivities !== []) {
+    displayLoggedActivities();
+  }
+}
+
+function createNewActivity(event) {
+  toggleElement("completed-display");
+  toggleElement("completed-activity-title");
+  toggleElement("new-activity-form");
+  toggleElement("new-activity-title");
 }
