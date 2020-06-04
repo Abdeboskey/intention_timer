@@ -274,6 +274,7 @@ input {
 }
 
 .timer-display {
+  grid-column: 1 / 2;
   background: #46424D;
   color: #FFF;
   box-shadow: 10px 10px 8px .8px #26222D;
@@ -325,6 +326,7 @@ input {
 }
 
 .completed-display {
+  grid-column: 1 / 2;
   background: #46424D;
   color: #FFF;
   box-shadow: 10px 10px 8px .8px #26222D;
@@ -337,12 +339,42 @@ input {
   align-items: center;
 }
 
-.card-section {
-  height: 40px;
-  width: 180px;
+.activity-card {
+  display: flex;
+  justify-content: space-between;
+  height: 5em;
+  margin: 0.6em 30px 25px 30px;
+  padding: 12px;
   background: #46424D;
+  box-shadow: 10px 10px 8px .8px #26222D;
   border-radius: 3px;
 }
+
+.card-text {
+  height: 3em;
+}
+
+.category {
+  color: #CBC9CF;
+}
+
+.time {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.goal {
+  margin-bottom: 0;
+}
+
+.activity-color {
+  height: 35px;
+  width: 6px;
+  background: red;
+  border: none;
+  border-radius: 4px;
+}
+
 
 .completed-display > button {
   height: 40px;
@@ -373,6 +405,18 @@ input {
   border-color: #FD8078;
 }
 
+.study-card-color {
+  background: #B3FD78;
+}
+
+.meditate-card-color {
+  background: #C278FD;
+}
+
+.exercise-card-color {
+  background: #FD8078;
+}
+
 .hidden {
   display: none;
 }
@@ -401,6 +445,7 @@ input {
   }
 
   .activity-buttons {
+    margin-top: -10px;
     margin-left: 11%;
     margin-right: 11%;
     justify-content: space-between;
@@ -409,7 +454,6 @@ input {
   .user-goal-prompt {
     margin-left: 11%;
     margin-right: 11%;
-    text-align: center;
   }
 
   .description-input {
@@ -481,9 +525,11 @@ input {
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 425px) {
 
   body {
+    max-width: 470px;
+    /* min-width: 350px; */
     grid-template-columns: auto;
     grid-template-rows: 40px auto;
     font-size: 0.8em;
@@ -526,6 +572,7 @@ input {
   #exercise-button {
     align-self: center;
     position: relative;
+    width: 150px;
   }
 
   #study-button span,
