@@ -4,10 +4,6 @@ html, body {
   height: 100%;
 }
 
-/* * {
-  border: 1px dotted pink;
-} */
-
 body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
@@ -175,20 +171,13 @@ label {
   height: 1.1em;
 }
 
-/* .error-message > span {
-   margin-top: -5px;
- } */
-
 .minutes-prompt {
-  /* grid-column: 1 / 4; */
   margin-right: 55px;
   margin-bottom: 20px;
   margin-top: 30px;
 }
 
 .seconds-prompt {
-  /* grid-column: 4 / 7; */
-  /* margin-left: 55px; */
   margin-right: 180px;
   margin-bottom: 20px;
   margin-top: 30px;
@@ -284,7 +273,6 @@ input {
   padding: 10px 120px 0px 120px;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-evenly; */
   align-items: center;
 }
 
@@ -295,7 +283,6 @@ input {
 }
 
 .timer {
-  /* font: 5em bold 600px arial; */
   font-family: arial;
   font-weight: 600px;
   font-size: 5em;
@@ -581,23 +568,33 @@ input {
   #exercise-button {
     align-self: center;
     position: relative;
-    width: 150px;
+    width: 200px;
   }
 
-  #study-button span,
   #meditate-button span,
   #exercise-button span {
     position: absolute;
-    transform: translate(-50%, -50%);
+    transform: translate(-90%, -50%);
+  }
+
+  #study-button span{
+    position: absolute;
+    transform: translate(-140%, -50%);
+  }
+
+  #meditate-button {
+    margin-top: .5em;
+    margin-bottom: .25em;
   }
 
   .study-img,
   .meditate-img,
   .exercise-img {
     float: left;
-    padding-left: 1.2em;
+    padding-left: 3.1em;
     padding-top: 0.25em;
     padding-bottom: 0.25em;
+
   }
 
   .user-goal-prompt {
@@ -610,11 +607,9 @@ input {
 
   .seconds-prompt {
     margin-top: 25px;
-    /* margin-right: 37px; */
   }
 
   .start-activity-button {
-    /* min-width: 10em; */
     grid-column-start: 2;
     grid-column-end: 6;
     height: 2.5em;
@@ -626,7 +621,6 @@ input {
     grid-row: 2 / 3;
     height: 10px;
     margin-top: 140px;
-    /* margin-left: 35px; */
     font-size: 1.2em;
     text-align: center;
   }
