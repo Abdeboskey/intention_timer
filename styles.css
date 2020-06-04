@@ -432,17 +432,6 @@ input {
      margin-left: 11%;
    }
 
-   main {
-    /* padding-bottom: 2em; */
-    /* border-bottom: 2px solid #46424D; */
-    border-right: none;
-   }
-
-   h2 {
-     border-top: 2px solid #46424D;
-     padding-top: 1em;
-   }
-
   #study-button {
     min-width: 4.5em;
   }
@@ -521,6 +510,11 @@ input {
     margin-right: 15%;
     max-width: 50%;
  }
+
+ .past-activities > p {
+   margin-left: 2%;
+   margin-right: 2%;
+ }
 }
 
 @media screen and (max-width: 850px) {
@@ -534,13 +528,21 @@ input {
     margin-right: 10%;
     margin-left: 10%;
   }
+
+  main {
+   border-right: none;
+  }
+
+  h2 {
+    border-top: 2px solid #46424D;
+    padding-top: 1em;
+  }
 }
 
 @media screen and (max-width: 470px) {
 
   body {
-    max-width: 470px;
-    /* min-width: 350px; */
+    min-width: 350px;
     grid-template-columns: auto;
     grid-template-rows: 40px auto;
     font-size: 0.8em;
@@ -608,20 +610,11 @@ input {
 
   .seconds-prompt {
     margin-top: 25px;
-    margin-right: 37px;
-  }
-
-  .description-input {
-    height: 0.8em;
-  }
-
-  .minutes-input,
-  .seconds-input {
-    height: 0.8em;
-    width: 6.5em;
+    /* margin-right: 37px; */
   }
 
   .start-activity-button {
+    /* min-width: 10em; */
     grid-column-start: 2;
     grid-column-end: 6;
     height: 2.5em;
