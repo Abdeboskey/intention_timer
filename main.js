@@ -244,11 +244,12 @@ function resetTimer() {
 }
 
 function getFromStorage() {
-  var stringOfThePast = localStorage.getItem("pastActivities");
-  var revivedActivities = JSON.parse(stringOfThePast);
-  pastActivities = revivedActivities;
-
-  if (pastActivities !== []) {
+  if (localStorage.getItem("pastActivities") === null) {
+    displayElement("no-activities-message");
+  } else {
+    var stringOfThePast = localStorage.getItem("pastActivities");
+    var revivedActivities = JSON.parse(stringOfThePast);
+    pastActivities = revivedActivities;
     displayLoggedActivities();
   }
 }
