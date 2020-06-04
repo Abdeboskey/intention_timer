@@ -48,7 +48,6 @@ function selectActivity(event) {
   }
 }
 
-
 function buttonSelect(button, image, category) {
   button.classList.remove("btn-default");
   button.classList.add(`${category}-selected`);
@@ -106,8 +105,6 @@ function validateInput(currentActivity, input){
   }
 }
 
-// function addClassname(target, className); ????
-
 function displayErrorMessage(section) {
   document.querySelector(`.${section}-error`).classList.remove("hidden");
 }
@@ -141,7 +138,6 @@ function startActivity(event) {
   startTimerButton.addEventListener("click", startTimer);
   makeNewActivity(event);
   validateInputs();
-  resetTimer();
   if (checkInputs()) {
     toggleElement("new-activity-title");
     toggleElement("new-activity-form");
@@ -151,7 +147,6 @@ function startActivity(event) {
   }
   document.querySelector(".new-activity-form").reset();
 }
-
 
 function makeNewActivity() {
   var category = getCategory(activityButtons);
@@ -272,6 +267,7 @@ function createNewActivity(event) {
   toggleElement("new-activity-form");
   toggleElement("new-activity-title");
   allButtonsDefault();
+  resetTimer();
 }
 
 function allButtonsDefault() {
