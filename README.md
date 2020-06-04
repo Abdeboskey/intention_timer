@@ -16,7 +16,7 @@ This project is the first group project of Turing School of Software and Design'
 * When a button is selected, it will change to a specific color associated with that activity. (Study: Green, Meditate: Purple, Exercise: Red)
 * If a new button is selected, it will change to its associated color and all other buttons will change back to the default, unselected color.
 
-![Gif of buttons being selected and changing color]()
+![Gif of buttons being selected and changing color](assets/timerGifs/buttonColor.gif)
 
 * Users can set specific goals for each session by using the input field under the prompt "What would you like to accomplish during this time?"
 * Users will then set the timer by entering a specific number of minutes and seconds into the associated input fields. Only numerical values can be accepted in these fields.
@@ -37,15 +37,15 @@ This project is the first group project of Turing School of Software and Design'
 
 * When the timer reaches 00:00 an alert will pop up and the option to log activity will appear.
 
-![Gif of timer reaching zero]()
+![Gif of timer reaching zero](assets/timerGifs/countdown.gif)
 
 * When the log activity button is clicked, the activity is logged in the past activities section.
 
-![Gif of activity being logged in past activities]()
+![Gif of activity being logged in past activities](assets/timerGifs/createCard.gif)
 
 * When the page is refreshed, the past activities display remains.
 
-![Gif of page refresh]()
+![Gif of full page functionality](assets/fullFunctionality.gif)
 
 ## Contributors
 

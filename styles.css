@@ -4,10 +4,6 @@ html, body {
   height: 100%;
 }
 
-/* * {
-  border: 1px dotted pink;
-} */
-
 body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
@@ -175,20 +171,13 @@ label {
   height: 1.1em;
 }
 
-/* .error-message > span {
-   margin-top: -5px;
- } */
-
 .minutes-prompt {
-  /* grid-column: 1 / 4; */
   margin-right: 55px;
   margin-bottom: 20px;
   margin-top: 30px;
 }
 
 .seconds-prompt {
-  /* grid-column: 4 / 7; */
-  /* margin-left: 55px; */
   margin-right: 180px;
   margin-bottom: 20px;
   margin-top: 30px;
@@ -284,7 +273,6 @@ input {
   padding: 10px 120px 0px 120px;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-evenly; */
   align-items: center;
 }
 
@@ -295,7 +283,6 @@ input {
 }
 
 .timer {
-  /* font: 5em bold 600px arial; */
   font-family: arial;
   font-weight: 600px;
   font-size: 5em;
@@ -510,6 +497,11 @@ input {
     margin-right: 15%;
     max-width: 50%;
  }
+
+ .past-activities > p {
+   margin-left: 2%;
+   margin-right: 2%;
+ }
 }
 
 @media screen and (max-width: 850px) {
@@ -523,13 +515,21 @@ input {
     margin-right: 10%;
     margin-left: 10%;
   }
+
+  main {
+   border-right: none;
+  }
+
+  h2 {
+    border-top: 2px solid #46424D;
+    padding-top: 1em;
+  }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 470px) {
 
   body {
-    max-width: 470px;
-    /* min-width: 350px; */
+    min-width: 350px;
     grid-template-columns: auto;
     grid-template-rows: 40px auto;
     font-size: 0.8em;
@@ -547,10 +547,6 @@ input {
 
   h2 {
     margin-left: 1em;
-  }
-
-  main {
-    border-bottom: 2px solid #46424D;
   }
 
   .past-activities > h2 {
@@ -572,23 +568,33 @@ input {
   #exercise-button {
     align-self: center;
     position: relative;
-    width: 150px;
+    width: 200px;
   }
 
-  #study-button span,
   #meditate-button span,
   #exercise-button span {
     position: absolute;
-    transform: translate(-50%, -50%);
+    transform: translate(-90%, -50%);
+  }
+
+  #study-button span{
+    position: absolute;
+    transform: translate(-140%, -50%);
+  }
+
+  #meditate-button {
+    margin-top: .5em;
+    margin-bottom: .25em;
   }
 
   .study-img,
   .meditate-img,
   .exercise-img {
     float: left;
-    padding-left: 1.2em;
+    padding-left: 3.1em;
     padding-top: 0.25em;
     padding-bottom: 0.25em;
+
   }
 
   .user-goal-prompt {
@@ -601,17 +607,6 @@ input {
 
   .seconds-prompt {
     margin-top: 25px;
-    margin-right: 37px;
-  }
-
-  .description-input {
-    height: 0.8em;
-  }
-
-  .minutes-input,
-  .seconds-input {
-    height: 0.8em;
-    width: 6.5em;
   }
 
   .start-activity-button {
@@ -626,7 +621,6 @@ input {
     grid-row: 2 / 3;
     height: 10px;
     margin-top: 140px;
-    /* margin-left: 35px; */
     font-size: 1.2em;
     text-align: center;
   }
