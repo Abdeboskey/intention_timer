@@ -16,20 +16,12 @@ var logActivityBtn = document.querySelector(".log-activity-button")
 var currentActivity;
 var pastActivities = [];
 
-// window.onload = getFromStorage();
-// window.addEventListener("click", clickWhat)
+window.onload = getFromStorage();
 startActivityBtn.addEventListener("click", startActivity);
 activityButtons.addEventListener("click", selectActivity);
 timeInput.addEventListener("keydown", noLetters);
 createNewButton.addEventListener("click", createNewActivity);
 logActivityBtn.addEventListener("click", logActivity);
-
-function clickWhat(event) {
-  event.preventDefault();
-  if(event.target.classList.contains("start-activity-button")) {
-    startActivity();
-  } // If we figure out our issue with window object, come back to this.
-}
 
 function selectActivity(event) {
   event.preventDefault();
@@ -251,10 +243,10 @@ function resetTimer() {
   hideElement("log-activity-button");
 }
 
-function getFromStorage(event) {
-  event.preventDefault();
+function getFromStorage() {
   var stringOfThePast = localStorage.getItem("pastActivities");
-  pastActivities.push(JSON.parse(stringOfThePast));
+  var revivedActivities = JSON.parse(stringOfThePast);
+  pastActivities = revivedActivities;
 
   if (pastActivities !== []) {
     displayLoggedActivities();
