@@ -12,19 +12,16 @@ var description = document.querySelector(".description-input");
 var minutes = document.querySelector(".minutes-input");
 var seconds = document.querySelector(".seconds-input");
 var createNewButton = document.querySelector(".create-new-button");
+var logActivityBtn = document.querySelector(".log-activity-button")
 var currentActivity;
 var pastActivities = [];
 
-// window.onload = getFromStorage();
-
+window.onload = getFromStorage();
 startActivityBtn.addEventListener("click", startActivity);
 activityButtons.addEventListener("click", selectActivity);
 timeInput.addEventListener("keydown", noLetters);
 createNewButton.addEventListener("click", createNewActivity);
-// do we want these so that error messages disappear when text is typed? I don't think they fully work yet...
-// description.addEventListener("keydown", removeErrorMessage);
-// minutes.addEventListener("keydown", removeErrorMessage);
-// seconds.addEventListener("keydown", removeErrorMessage);
+logActivityBtn.addEventListener("click", logActivity);
 
 function selectActivity(event) {
   event.preventDefault();
@@ -133,7 +130,6 @@ function startActivity(event) {
   startTimerButton.addEventListener("click", startTimer);
   makeNewActivity(event);
   validateInputs();
-  resetTimer();
   if (checkInputs()) {
     toggleElement("new-activity-title");
     toggleElement("new-activity-form");
@@ -143,7 +139,6 @@ function startActivity(event) {
   }
   document.querySelector(".new-activity-form").reset();
 }
-
 
 function makeNewActivity() {
   var category = getCategory(activityButtons);
@@ -174,7 +169,6 @@ function getTime() {
   var userSeconds = document.querySelector(".user-seconds");
   var dblDigitMinutes = ("0" + currentActivity.minutes).slice(-2);
   var dblDigitSeconds = ("0" + currentActivity.seconds).slice(-2);
-
   userMinutes.innerText = dblDigitMinutes;
   userSeconds.innerText = dblDigitSeconds;
 }
@@ -206,12 +200,6 @@ function startTimer(event) {
   }, 1000);
 }
 
-function displayLoggedActivities() {
-  displayElement("card-section");
-  hideElement("no-activities-message"); //change to add hidden?
-  createCard();
-}
-
 function createCard() {
   var cardSection = document.querySelector(".card-section");
   cardSection.innerHTML = "";
@@ -230,8 +218,18 @@ function createCard() {
   }
 }
 
-var logActivityBtn = document.querySelector(".log-activity-button")
-logActivityBtn.addEventListener("click", logActivity);
+function displayLoggedActivities() {
+  displayElement("card-section");
+  hideElement("no-activities-message");
+  createCard();
+}
+
+function displayCompletedActivity() {
+  toggleElement("current-activity-title");
+  toggleElement("completed-display");
+  toggleElement("timer-display");
+  toggleElement("completed-activity-title");
+}
 
 function logActivity() {
   pastActivities.push(currentActivity);
@@ -245,17 +243,10 @@ function resetTimer() {
   hideElement("log-activity-button");
 }
 
-function displayCompletedActivity() {
-  toggleElement("current-activity-title");
-  toggleElement("completed-display");
-  toggleElement("timer-display");
-  toggleElement("completed-activity-title");
-}
-
-function getFromStorage(event) {
-  event.preventDefault();
+function getFromStorage() {
   var stringOfThePast = localStorage.getItem("pastActivities");
-  pastActivities.push(JSON.parse(stringOfThePast));
+  var revivedActivities = JSON.parse(stringOfThePast);
+  pastActivities = revivedActivities;
 
   if (pastActivities !== []) {
     displayLoggedActivities();
@@ -267,4 +258,12 @@ function createNewActivity(event) {
   toggleElement("completed-activity-title");
   toggleElement("new-activity-form");
   toggleElement("new-activity-title");
+  allButtonsDefault();
+  resetTimer();
+}
+
+function allButtonsDefault() {
+  buttonDefault(studyButton, studyImage, "study");
+  buttonDefault(exerciseButton, exerciseImage, "exercise");
+  buttonDefault(meditateButton, meditateImage, "meditate");
 }
