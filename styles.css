@@ -432,6 +432,17 @@ input {
      margin-left: 11%;
    }
 
+   main {
+    /* padding-bottom: 2em; */
+    /* border-bottom: 2px solid #46424D; */
+    border-right: none;
+   }
+
+   h2 {
+     border-top: 2px solid #46424D;
+     padding-top: 1em;
+   }
+
   #study-button {
     min-width: 4.5em;
   }
@@ -525,7 +536,7 @@ input {
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 470px) {
 
   body {
     max-width: 470px;
@@ -547,10 +558,6 @@ input {
 
   h2 {
     margin-left: 1em;
-  }
-
-  main {
-    border-bottom: 2px solid #46424D;
   }
 
   .past-activities > h2 {
